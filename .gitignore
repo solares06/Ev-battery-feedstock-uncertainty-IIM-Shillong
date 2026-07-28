@@ -1,0 +1,19 @@
+# Environments
+venv/
+env/
+.env
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE / OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Data and Models
+# (We exclude raw data and models as they can be large, but track scripts and docs)
+data/raw/
+models/

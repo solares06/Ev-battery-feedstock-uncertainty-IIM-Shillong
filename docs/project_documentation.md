@@ -216,3 +216,21 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 - **Facilities Opened:** Ahmedabad (20.2M capacity), Chennai (8.6M), Kolkata (4.6M).
 - **Facilities NOT Opened:** Delhi NCR, Pune, Hyderabad.
 - **Informal Sector Loss: 0%** across all scenarios — the formal network is profitable enough to capture all feedstock.
+
+---
+
+## Phase 8: Sensitivity Analysis
+
+**Objective:** Stress-test the SMIP model to understand how robust the facility decisions are to changes in key economic parameters.
+
+### 8.1 Parameters Swept
+1. **NMC Revenue** (₹500 → ₹4,500/battery): Tests the impact of battery material price volatility.
+2. **Informal Sector Penalty** (₹100 → ₹5,000/battery): Tests the impact of enforcement/regulation strength.
+3. **Fixed Facility Cost** (0.5x → 5.0x base): Tests the impact of infrastructure cost overruns.
+4. **Transport Cost** (0.5x → 10.0x base): Tests the impact of fuel/logistics inflation.
+
+### 8.2 Key Findings
+- **NMC Revenue:** The network structure (3 facilities) is stable across all NMC prices. Even at ₹500/battery, formal recycling remains profitable. This means the model is robust to NMC price crashes.
+- **Informal Sector:** With current NMC/LFP revenues, informal sector leakage is 0% across ALL penalty levels — even at ₹100 penalty. The formal network is inherently more profitable than abandoning batteries.
+- **Fixed Costs:** As facility costs rise (1.5x → 5x), the optimizer consolidates from 3 facilities to just 1 (Ahmedabad), accepting higher transport costs to avoid fixed cost overhead.
+- **Transport Costs:** As transport costs rise, the optimizer opens MORE facilities (up to all 6) to minimize long-haul shipments. This is the classic facility location trade-off.

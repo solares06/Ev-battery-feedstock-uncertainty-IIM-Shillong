@@ -1,0 +1,361 @@
+Year,Scenario,Probability,Vehicle_Class,Chemistry,EOL_Volume
+2021,Base,0.5,2 and 3 wheelers,LFP,19556
+2021,Base,0.5,2 and 3 wheelers,NMC,45632
+2021,Base,0.5,Buses,LFP,92
+2021,Base,0.5,Buses,NMC,215
+2021,Base,0.5,Cars,LFP,321
+2021,Base,0.5,Cars,NMC,751
+2021,Base,0.5,Vans,LFP,28
+2021,Base,0.5,Vans,NMC,67
+2021,Optimistic,0.25,2 and 3 wheelers,LFP,24635
+2021,Optimistic,0.25,2 and 3 wheelers,NMC,57482
+2021,Optimistic,0.25,Buses,LFP,116
+2021,Optimistic,0.25,Buses,NMC,271
+2021,Optimistic,0.25,Cars,LFP,405
+2021,Optimistic,0.25,Cars,NMC,946
+2021,Optimistic,0.25,Vans,LFP,36
+2021,Optimistic,0.25,Vans,NMC,85
+2021,Pessimistic,0.25,2 and 3 wheelers,LFP,14477
+2021,Pessimistic,0.25,2 and 3 wheelers,NMC,33780
+2021,Pessimistic,0.25,Buses,LFP,68
+2021,Pessimistic,0.25,Buses,NMC,159
+2021,Pessimistic,0.25,Cars,LFP,238
+2021,Pessimistic,0.25,Cars,NMC,556
+2021,Pessimistic,0.25,Vans,LFP,21
+2021,Pessimistic,0.25,Vans,NMC,50
+2022,Base,0.5,2 and 3 wheelers,LFP,228633
+2022,Base,0.5,2 and 3 wheelers,NMC,499075
+2022,Base,0.5,Buses,LFP,567
+2022,Base,0.5,Buses,NMC,1161
+2022,Base,0.5,Cars,LFP,2754
+2022,Base,0.5,Cars,NMC,5861
+2022,Base,0.5,Vans,LFP,247
+2022,Base,0.5,Vans,NMC,525
+2022,Optimistic,0.25,2 and 3 wheelers,LFP,287648
+2022,Optimistic,0.25,2 and 3 wheelers,NMC,628245
+2022,Optimistic,0.25,Buses,LFP,713
+2022,Optimistic,0.25,Buses,NMC,1461
+2022,Optimistic,0.25,Cars,LFP,3464
+2022,Optimistic,0.25,Cars,NMC,7376
+2022,Optimistic,0.25,Vans,LFP,310
+2022,Optimistic,0.25,Vans,NMC,661
+2022,Pessimistic,0.25,2 and 3 wheelers,LFP,169698
+2022,Pessimistic,0.25,2 and 3 wheelers,NMC,369998
+2022,Pessimistic,0.25,Buses,LFP,422
+2022,Pessimistic,0.25,Buses,NMC,862
+2022,Pessimistic,0.25,Cars,LFP,2046
+2022,Pessimistic,0.25,Cars,NMC,4347
+2022,Pessimistic,0.25,Vans,LFP,183
+2022,Pessimistic,0.25,Vans,NMC,390
+2023,Base,0.5,2 and 3 wheelers,LFP,980541
+2023,Base,0.5,2 and 3 wheelers,NMC,1877852
+2023,Base,0.5,Buses,LFP,1710
+2023,Base,0.5,Buses,NMC,2955
+2023,Base,0.5,Cars,LFP,10246
+2023,Base,0.5,Cars,NMC,18932
+2023,Base,0.5,Vans,LFP,912
+2023,Base,0.5,Vans,NMC,1682
+2023,Optimistic,0.25,2 and 3 wheelers,LFP,1230197
+2023,Optimistic,0.25,2 and 3 wheelers,NMC,2359975
+2023,Optimistic,0.25,Buses,LFP,2140
+2023,Optimistic,0.25,Buses,NMC,3708
+2023,Optimistic,0.25,Cars,LFP,12844
+2023,Optimistic,0.25,Cars,NMC,23781
+2023,Optimistic,0.25,Vans,LFP,1143
+2023,Optimistic,0.25,Vans,NMC,2113
+2023,Pessimistic,0.25,2 and 3 wheelers,LFP,731683
+2023,Pessimistic,0.25,2 and 3 wheelers,NMC,1396707
+2023,Pessimistic,0.25,Buses,LFP,1281
+2023,Pessimistic,0.25,Buses,NMC,2204
+2023,Pessimistic,0.25,Cars,LFP,7657
+2023,Pessimistic,0.25,Cars,NMC,14095
+2023,Pessimistic,0.25,Vans,LFP,681
+2023,Pessimistic,0.25,Vans,NMC,1252
+2024,Base,0.5,2 and 3 wheelers,LFP,2628291
+2024,Base,0.5,2 and 3 wheelers,NMC,4306720
+2024,Base,0.5,Buses,LFP,3745
+2024,Base,0.5,Buses,NMC,5460
+2024,Base,0.5,Cars,LFP,26496
+2024,Base,0.5,Cars,NMC,42543
+2024,Base,0.5,Vans,LFP,2326
+2024,Base,0.5,Vans,NMC,3711
+2024,Optimistic,0.25,2 and 3 wheelers,LFP,3283147
+2024,Optimistic,0.25,2 and 3 wheelers,NMC,5398561
+2024,Optimistic,0.25,Buses,LFP,4661
+2024,Optimistic,0.25,Buses,NMC,6828
+2024,Optimistic,0.25,Cars,LFP,33070
+2024,Optimistic,0.25,Cars,NMC,53307
+2024,Optimistic,0.25,Vans,LFP,2903
+2024,Optimistic,0.25,Vans,NMC,4649
+2024,Pessimistic,0.25,2 and 3 wheelers,LFP,1975851
+2024,Pessimistic,0.25,2 and 3 wheelers,NMC,3217866
+2024,Pessimistic,0.25,Buses,LFP,2833
+2024,Pessimistic,0.25,Buses,NMC,4095
+2024,Pessimistic,0.25,Cars,LFP,19946
+2024,Pessimistic,0.25,Cars,NMC,31808
+2024,Pessimistic,0.25,Vans,LFP,1752
+2024,Pessimistic,0.25,Vans,NMC,2775
+2025,Base,0.5,2 and 3 wheelers,LFP,5211328
+2025,Base,0.5,2 and 3 wheelers,NMC,7034016
+2025,Base,0.5,Buses,LFP,6813
+2025,Base,0.5,Buses,NMC,8346
+2025,Base,0.5,Cars,LFP,55653
+2025,Base,0.5,Cars,NMC,77814
+2025,Base,0.5,Vans,LFP,4783
+2025,Base,0.5,Vans,NMC,6584
+2025,Optimistic,0.25,2 and 3 wheelers,LFP,6468595
+2025,Optimistic,0.25,2 and 3 wheelers,NMC,8782830
+2025,Optimistic,0.25,Buses,LFP,8420
+2025,Optimistic,0.25,Buses,NMC,10397
+2025,Optimistic,0.25,Cars,LFP,69098
+2025,Optimistic,0.25,Cars,NMC,97230
+2025,Optimistic,0.25,Vans,LFP,5936
+2025,Optimistic,0.25,Vans,NMC,8224
+2025,Pessimistic,0.25,2 and 3 wheelers,LFP,3959348
+2025,Pessimistic,0.25,2 and 3 wheelers,NMC,5291069
+2025,Pessimistic,0.25,Buses,LFP,5213
+2025,Pessimistic,0.25,Buses,NMC,6303
+2025,Pessimistic,0.25,Cars,LFP,42262
+2025,Pessimistic,0.25,Cars,NMC,58456
+2025,Pessimistic,0.25,Vans,LFP,3635
+2025,Pessimistic,0.25,Vans,NMC,4949
+2026,Base,0.5,2 and 3 wheelers,LFP,8355944
+2026,Base,0.5,2 and 3 wheelers,NMC,8803195
+2026,Base,0.5,Buses,LFP,10930
+2026,Base,0.5,Buses,NMC,11209
+2026,Base,0.5,Cars,LFP,101848
+2026,Base,0.5,Cars,NMC,124209
+2026,Base,0.5,Vans,LFP,8502
+2026,Base,0.5,Vans,NMC,10054
+2026,Optimistic,0.25,2 and 3 wheelers,LFP,10276246
+2026,Optimistic,0.25,2 and 3 wheelers,NMC,10921356
+2026,Optimistic,0.25,Buses,LFP,13397
+2026,Optimistic,0.25,Buses,NMC,13894
+2026,Optimistic,0.25,Cars,LFP,125680
+2026,Optimistic,0.25,Cars,NMC,154699
+2026,Optimistic,0.25,Vans,LFP,10482
+2026,Optimistic,0.25,Vans,NMC,12512
+2026,Pessimistic,0.25,2 and 3 wheelers,LFP,6444390
+2026,Pessimistic,0.25,2 and 3 wheelers,NMC,6693292
+2026,Pessimistic,0.25,Buses,LFP,8474
+2026,Pessimistic,0.25,Buses,NMC,8534
+2026,Pessimistic,0.25,Cars,LFP,78117
+2026,Pessimistic,0.25,Cars,NMC,93817
+2026,Pessimistic,0.25,Vans,LFP,6531
+2026,Pessimistic,0.25,Vans,NMC,7604
+2027,Base,0.5,2 and 3 wheelers,LFP,11603927
+2027,Base,0.5,2 and 3 wheelers,NMC,9078915
+2027,Base,0.5,Buses,LFP,15952
+2027,Base,0.5,Buses,NMC,13625
+2027,Base,0.5,Cars,LFP,168248
+2027,Base,0.5,Cars,NMC,179099
+2027,Base,0.5,Vans,LFP,13537
+2027,Base,0.5,Vans,NMC,13659
+2027,Optimistic,0.25,2 and 3 wheelers,LFP,14100228
+2027,Optimistic,0.25,2 and 3 wheelers,NMC,11149360
+2027,Optimistic,0.25,Buses,LFP,19382
+2027,Optimistic,0.25,Buses,NMC,16792
+2027,Optimistic,0.25,Cars,LFP,206265
+2027,Optimistic,0.25,Cars,NMC,222265
+2027,Optimistic,0.25,Vans,LFP,16565
+2027,Optimistic,0.25,Vans,NMC,16925
+2027,Pessimistic,0.25,2 and 3 wheelers,LFP,9118590
+2027,Pessimistic,0.25,2 and 3 wheelers,NMC,7017106
+2027,Pessimistic,0.25,Buses,LFP,12535
+2027,Pessimistic,0.25,Buses,NMC,10469
+2027,Pessimistic,0.25,Cars,LFP,130384
+2027,Pessimistic,0.25,Cars,NMC,136077
+2027,Pessimistic,0.25,Vans,LFP,10521
+2027,Pessimistic,0.25,Vans,NMC,10405
+2028,Base,0.5,2 and 3 wheelers,LFP,14754304
+2028,Base,0.5,2 and 3 wheelers,NMC,8448400
+2028,Base,0.5,Buses,LFP,21629
+2028,Base,0.5,Buses,NMC,15297
+2028,Base,0.5,Cars,LFP,256440
+2028,Base,0.5,Cars,NMC,237898
+2028,Base,0.5,Vans,LFP,19751
+2028,Base,0.5,Vans,NMC,16841
+2028,Optimistic,0.25,2 and 3 wheelers,LFP,17689433
+2028,Optimistic,0.25,2 and 3 wheelers,NMC,10232511
+2028,Optimistic,0.25,Buses,LFP,26045
+2028,Optimistic,0.25,Buses,NMC,18729
+2028,Optimistic,0.25,Cars,LFP,312263
+2028,Optimistic,0.25,Cars,NMC,294074
+2028,Optimistic,0.25,Vans,LFP,23978
+2028,Optimistic,0.25,Vans,NMC,20759
+2028,Pessimistic,0.25,2 and 3 wheelers,LFP,11828311
+2028,Pessimistic,0.25,2 and 3 wheelers,NMC,6670966
+2028,Pessimistic,0.25,Buses,LFP,17224
+2028,Pessimistic,0.25,Buses,NMC,11877
+2028,Pessimistic,0.25,Cars,LFP,200813
+2028,Pessimistic,0.25,Cars,NMC,181910
+2028,Pessimistic,0.25,Vans,LFP,15538
+2028,Pessimistic,0.25,Vans,NMC,12936
+2029,Base,0.5,2 and 3 wheelers,LFP,17733895
+2029,Base,0.5,2 and 3 wheelers,NMC,7659725
+2029,Base,0.5,Buses,LFP,27623
+2029,Base,0.5,Buses,NMC,16161
+2029,Base,0.5,Cars,LFP,365711
+2029,Base,0.5,Cars,NMC,294996
+2029,Base,0.5,Vans,LFP,26823
+2029,Base,0.5,Vans,NMC,19139
+2029,Optimistic,0.25,2 and 3 wheelers,LFP,20992301
+2029,Optimistic,0.25,2 and 3 wheelers,NMC,9138657
+2029,Optimistic,0.25,Buses,LFP,32971
+2029,Optimistic,0.25,Buses,NMC,19635
+2029,Optimistic,0.25,Cars,LFP,442275
+2029,Optimistic,0.25,Cars,NMC,363049
+2029,Optimistic,0.25,Vans,LFP,32294
+2029,Optimistic,0.25,Vans,NMC,23445
+2029,Pessimistic,0.25,2 and 3 wheelers,LFP,14476975
+2029,Pessimistic,0.25,2 and 3 wheelers,NMC,6183796
+2029,Pessimistic,0.25,Buses,LFP,22281
+2029,Pessimistic,0.25,Buses,NMC,12697
+2029,Pessimistic,0.25,Cars,LFP,289358
+2029,Pessimistic,0.25,Cars,NMC,227163
+2029,Pessimistic,0.25,Vans,LFP,21364
+2029,Pessimistic,0.25,Vans,NMC,14847
+2030,Base,0.5,2 and 3 wheelers,LFP,20414751
+2030,Base,0.5,2 and 3 wheelers,NMC,7011086
+2030,Base,0.5,Buses,LFP,33603
+2030,Base,0.5,Buses,NMC,16349
+2030,Base,0.5,Cars,LFP,493003
+2030,Base,0.5,Cars,NMC,344906
+2030,Base,0.5,Vans,LFP,34323
+2030,Base,0.5,Vans,NMC,20353
+2030,Optimistic,0.25,2 and 3 wheelers,LFP,23906709
+2030,Optimistic,0.25,2 and 3 wheelers,NMC,8252583
+2030,Optimistic,0.25,Buses,LFP,39770
+2030,Optimistic,0.25,Buses,NMC,19689
+2030,Optimistic,0.25,Cars,LFP,592117
+2030,Optimistic,0.25,Cars,NMC,422335
+2030,Optimistic,0.25,Vans,LFP,40977
+2030,Optimistic,0.25,Vans,NMC,24744
+2030,Pessimistic,0.25,2 and 3 wheelers,LFP,16913736
+2030,Pessimistic,0.25,2 and 3 wheelers,NMC,5768488
+2030,Pessimistic,0.25,Buses,LFP,27436
+2030,Pessimistic,0.25,Buses,NMC,13015
+2030,Pessimistic,0.25,Cars,LFP,394085
+2030,Pessimistic,0.25,Cars,NMC,267709
+2030,Pessimistic,0.25,Vans,LFP,27678
+2030,Pessimistic,0.25,Vans,NMC,15974
+2031,Base,0.5,2 and 3 wheelers,LFP,22677117
+2031,Base,0.5,2 and 3 wheelers,NMC,6587881
+2031,Base,0.5,Buses,LFP,39276
+2031,Base,0.5,Buses,NMC,16108
+2031,Base,0.5,Cars,LFP,633193
+2031,Base,0.5,Cars,NMC,383444
+2031,Base,0.5,Vans,LFP,41808
+2031,Base,0.5,Vans,NMC,20588
+2031,Optimistic,0.25,2 and 3 wheelers,LFP,26325518
+2031,Optimistic,0.25,2 and 3 wheelers,NMC,7669319
+2031,Optimistic,0.25,Buses,LFP,46111
+2031,Optimistic,0.25,Buses,NMC,19209
+2031,Optimistic,0.25,Cars,LFP,755250
+2031,Optimistic,0.25,Cars,NMC,466789
+2031,Optimistic,0.25,Vans,LFP,49496
+2031,Optimistic,0.25,Vans,NMC,24807
+2031,Pessimistic,0.25,2 and 3 wheelers,LFP,19012076
+2031,Pessimistic,0.25,2 and 3 wheelers,NMC,5502583
+2031,Pessimistic,0.25,Buses,LFP,32432
+2031,Pessimistic,0.25,Buses,NMC,13008
+2031,Pessimistic,0.25,Cars,LFP,511269
+2031,Pessimistic,0.25,Cars,NMC,300319
+2031,Pessimistic,0.25,Vans,LFP,34121
+2031,Pessimistic,0.25,Vans,NMC,16378
+2032,Base,0.5,2 and 3 wheelers,LFP,24500390
+2032,Base,0.5,2 and 3 wheelers,NMC,6450967
+2032,Base,0.5,Buses,LFP,44457
+2032,Base,0.5,Buses,NMC,15708
+2032,Base,0.5,Cars,LFP,779989
+2032,Base,0.5,Cars,NMC,408712
+2032,Base,0.5,Vans,LFP,48907
+2032,Base,0.5,Vans,NMC,20178
+2032,Optimistic,0.25,2 and 3 wheelers,LFP,28234693
+2032,Optimistic,0.25,2 and 3 wheelers,NMC,7442931
+2032,Optimistic,0.25,Buses,LFP,51797
+2032,Optimistic,0.25,Buses,NMC,18538
+2032,Optimistic,0.25,Cars,LFP,923926
+2032,Optimistic,0.25,Cars,NMC,494183
+2032,Optimistic,0.25,Vans,LFP,57428
+2032,Optimistic,0.25,Vans,NMC,24066
+2032,Pessimistic,0.25,2 and 3 wheelers,LFP,20743284
+2032,Pessimistic,0.25,2 and 3 wheelers,NMC,5453331
+2032,Pessimistic,0.25,Buses,LFP,37089
+2032,Pessimistic,0.25,Buses,NMC,12874
+2032,Pessimistic,0.25,Cars,LFP,636026
+2032,Pessimistic,0.25,Cars,NMC,323412
+2032,Pessimistic,0.25,Vans,LFP,40371
+2032,Pessimistic,0.25,Vans,NMC,16293
+2033,Base,0.5,2 and 3 wheelers,LFP,25967354
+2033,Base,0.5,2 and 3 wheelers,NMC,6567811
+2033,Base,0.5,Buses,LFP,49074
+2033,Base,0.5,Buses,NMC,15369
+2033,Base,0.5,Cars,LFP,927017
+2033,Base,0.5,Cars,NMC,421461
+2033,Base,0.5,Vans,LFP,55377
+2033,Base,0.5,Vans,NMC,19532
+2033,Optimistic,0.25,2 and 3 wheelers,LFP,29729678
+2033,Optimistic,0.25,2 and 3 wheelers,NMC,7521806
+2033,Optimistic,0.25,Buses,LFP,56774
+2033,Optimistic,0.25,Buses,NMC,17951
+2033,Optimistic,0.25,Cars,LFP,1090575
+2033,Optimistic,0.25,Cars,NMC,505643
+2033,Optimistic,0.25,Vans,LFP,64523
+2033,Optimistic,0.25,Vans,NMC,23042
+2033,Pessimistic,0.25,2 and 3 wheelers,LFP,22171483
+2033,Pessimistic,0.25,2 and 3 wheelers,NMC,5605428
+2033,Pessimistic,0.25,Buses,LFP,41328
+2033,Pessimistic,0.25,Buses,NMC,12778
+2033,Pessimistic,0.25,Cars,LFP,763187
+2033,Pessimistic,0.25,Cars,NMC,337367
+2033,Pessimistic,0.25,Vans,LFP,46196
+2033,Pessimistic,0.25,Vans,NMC,16018
+2034,Base,0.5,2 and 3 wheelers,LFP,27234796
+2034,Base,0.5,2 and 3 wheelers,NMC,6818980
+2034,Base,0.5,Buses,LFP,53155
+2034,Base,0.5,Buses,NMC,15222
+2034,Base,0.5,Cars,LFP,1068836
+2034,Base,0.5,Cars,NMC,424677
+2034,Base,0.5,Vans,LFP,61120
+2034,Base,0.5,Vans,NMC,18987
+2034,Optimistic,0.25,2 and 3 wheelers,LFP,30994294
+2034,Optimistic,0.25,2 and 3 wheelers,NMC,7760657
+2034,Optimistic,0.25,Buses,LFP,61100
+2034,Optimistic,0.25,Buses,NMC,17608
+2034,Optimistic,0.25,Cars,LFP,1248989
+2034,Optimistic,0.25,Cars,NMC,505082
+2034,Optimistic,0.25,Vans,LFP,70705
+2034,Optimistic,0.25,Vans,NMC,22158
+2034,Pessimistic,0.25,2 and 3 wheelers,LFP,23428789
+2034,Pessimistic,0.25,2 and 3 wheelers,NMC,5865675
+2034,Pessimistic,0.25,Buses,LFP,45153
+2034,Pessimistic,0.25,Buses,NMC,12822
+2034,Pessimistic,0.25,Cars,LFP,888129
+2034,Pessimistic,0.25,Cars,NMC,344263
+2034,Pessimistic,0.25,Vans,LFP,51481
+2034,Pessimistic,0.25,Vans,NMC,15805
+2035,Base,0.5,2 and 3 wheelers,LFP,28451547
+2035,Base,0.5,2 and 3 wheelers,NMC,7113591
+2035,Base,0.5,Buses,LFP,56765
+2035,Base,0.5,Buses,NMC,15303
+2035,Base,0.5,Cars,LFP,1201451
+2035,Base,0.5,Cars,NMC,422528
+2035,Base,0.5,Vans,LFP,66149
+2035,Base,0.5,Vans,NMC,18732
+2035,Optimistic,0.25,2 and 3 wheelers,LFP,32211507
+2035,Optimistic,0.25,2 and 3 wheelers,NMC,8053705
+2035,Optimistic,0.25,Buses,LFP,64872
+2035,Optimistic,0.25,Buses,NMC,17555
+2035,Optimistic,0.25,Cars,LFP,1394874
+2035,Optimistic,0.25,Cars,NMC,497847
+2035,Optimistic,0.25,Vans,LFP,76024
+2035,Optimistic,0.25,Vans,NMC,21647
+2035,Pessimistic,0.25,2 and 3 wheelers,LFP,24646447
+2035,Pessimistic,0.25,2 and 3 wheelers,NMC,6162193
+2035,Pessimistic,0.25,Buses,LFP,48604
+2035,Pessimistic,0.25,Buses,NMC,13038
+2035,Pessimistic,0.25,Cars,LFP,1007220
+2035,Pessimistic,0.25,Cars,NMC,347105
+2035,Pessimistic,0.25,Vans,LFP,56207
+2035,Pessimistic,0.25,Vans,NMC,15803

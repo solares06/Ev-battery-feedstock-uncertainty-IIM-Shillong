@@ -150,3 +150,25 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 ### 4.5 Outputs
 - `data/processed/eol_battery_projection.csv`: Year-by-year EOL count by vehicle class.
 - `outputs/eol_projection_plot.png`: Stacked area chart of EOL battery volumes.
+
+---
+
+## Phase 5: SMIP Scenario Generation
+
+**Objective:** Generate discrete feedstock scenarios (Pessimistic, Base, Optimistic) with probability weights and chemistry splits to serve as direct inputs for the Two-Stage Stochastic Mixed-Integer Programming (SMIP) model.
+
+### 5.1 Uncertainty Bounds
+- Extracted `yhat_lower`, `Forecast_Registrations`, and `yhat_upper` from the Prophet model.
+- Applied the Weibull survival convolution to all three bounds independently.
+
+### 5.2 Scenario Probabilities
+- **Pessimistic (yhat_lower):** 25% Probability
+- **Base (yhat):** 50% Probability
+- **Optimistic (yhat_upper):** 25% Probability
+
+### 5.3 Chemistry Disaggregation
+- Each vehicle class cohort's EOL volume is multiplied by the historical `LFP_Share` and `NMC_Share` for the year that cohort was originally sold (using data from `chemistry_mix.csv`).
+
+### 5.4 Outputs
+- `data/processed/smip_feedstock_scenarios.csv`: The master matrix formatted for Python solvers (Pyomo/Gurobi). Format: `Year, Scenario, Probability, Vehicle_Class, Chemistry, EOL_Volume`.
+- `outputs/scenario_funnel_plot.png`: A funnel chart visualizing the bounds of uncertainty over time.

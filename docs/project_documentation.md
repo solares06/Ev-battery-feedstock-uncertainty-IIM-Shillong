@@ -191,3 +191,28 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 - The solver (CBC) achieved an **Optimal** solution.
 - The model opened all 3 facilities and installed enough cumulative capacity to handle the Optimistic scenario volume.
 - As a result of balancing penalty costs vs capacity costs, 0 batteries were lost to the informal sector in the optimal network design.
+
+---
+
+## Phase 7: State-Level Expansion & Realistic INR Cost Parameters
+
+**Objective:** Upgrade the prototype SMIP model to use real Indian states, 6 candidate facility locations, and realistic INR-denominated cost parameters.
+
+### 7.1 State-Level Supply Regions
+- Computed the **Top 10 EV-adopting states** from actual VAHAN registration data.
+- States: UP (19.5%), MH (14.7%), TN (10.7%), GJ (9.7%), KA (9.4%), MP (8.5%), RJ (8.2%), BR (7.3%), WB (6.4%), TG (5.6%).
+
+### 7.2 Facility Candidates (6 Locations)
+- Delhi NCR, Chennai, Pune, Hyderabad, Ahmedabad, Kolkata.
+- Fixed costs range from ₹30-40 Crore per facility.
+
+### 7.3 Realistic INR Cost Parameters
+- Transport: ₹0.08/battery/km using approximate inter-state capital distances.
+- Informal Penalty: ₹2,000/battery.
+- NMC Revenue: ₹2,800/battery; LFP Revenue: ₹650/battery.
+
+### 7.4 Optimization Results (2030)
+- **Optimal Expected Cost: ₹-1,895 Crore** (net profit due to high NMC recovery value).
+- **Facilities Opened:** Ahmedabad (20.2M capacity), Chennai (8.6M), Kolkata (4.6M).
+- **Facilities NOT Opened:** Delhi NCR, Pune, Hyderabad.
+- **Informal Sector Loss: 0%** across all scenarios — the formal network is profitable enough to capture all feedstock.

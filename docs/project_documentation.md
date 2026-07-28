@@ -72,3 +72,81 @@ This document tracks the technical implementation, dataset details, and methodol
   - **Level Series (Original):** p-value = 0.9948 (Non-stationary)
   - **First-Differenced Series:** p-value = 0.0000 (Stationary)
 - **Conclusion:** The time series must be differenced once to achieve stationarity. This confirms that an integrated model like **SARIMAX (with $d=1$)** or **Prophet** is the mathematically appropriate choice for Phase 3.
+
+---
+
+## Phase 3: Sales Forecasting Model (Prophet)
+
+**Objective:** Build a time-series forecasting model to predict national EV sales in India from 2026 to 2035.
+
+### 3.1 Model Architecture
+- **Framework:** Meta Prophet with exogenous regressors.
+- **Script:** `scripts/train_forecast_model.py`
+- **Rationale:** Prophet was chosen over SARIMAX because it natively handles strong non-linear growth trends (characteristic of EV adoption S-curves) and seamlessly incorporates boolean exogenous variables without requiring manual differencing.
+
+### 3.2 Configuration
+- **Target Variable (y):** Monthly national EV registrations (aggregated from VAHAN data).
+- **Exogenous Regressors:** `FAME_II_Active`, `PM_EDRIVE_Active`, `State_Subsidy_Active` (from `policy_regressors.csv`).
+- **Seasonality:** Yearly seasonality enabled; weekly/daily disabled (monthly data).
+- **Changepoint Prior Scale:** 0.05 (conservative, to avoid overfitting to noise).
+
+### 3.3 Holdout Validation
+- **Train Period:** January 2020 – December 2025.
+- **Test Period:** January 2026 – July 2026 (held out from training).
+- **Results:**
+  - **MAPE:** 7.92% (the model's predictions were within ~8% of real 2026 registrations on average).
+  - **RMSE:** 221,798 registrations.
+
+### 3.4 Outputs
+- `data/processed/ev_sales_forecast_2035.csv`: Monthly point forecast + confidence intervals (`yhat_lower`, `yhat_upper`).
+- `models/prophet_sales_model.json`: Serialized trained model.
+- `outputs/forecast_validation.png`: Train/test/future forecast visualization.
+
+---
+
+## Phase 4: Battery Degradation & EOL Projection (Weibull Survival Analysis)
+
+**Objective:** Project how many batteries will reach End-of-Life (EOL) in each year from 2020 to 2035, providing the feedstock supply input for the stochastic optimization model.
+
+### 4.1 Vehicle Class Segmentation
+- **Source:** IEA India EV sales data, filtered for BEV powertrain.
+- **Procedure:** Computed the historical sales share of each vehicle class (2020–2025) from IEA data, then applied those shares to disaggregate the Prophet national forecast.
+- **Computed Shares:**
+
+| Vehicle Class | Share of India EV Market |
+|---|---|
+| 2 & 3 Wheelers | 94.01% |
+| Cars | 5.53% |
+| Vans | 0.25% |
+| Buses | 0.21% |
+
+### 4.2 Weibull Survival Parameters
+- **Model:** Weibull distribution $F(t) = 1 - e^{-(t/\lambda)^\beta}$
+- **Parameters (literature-backed):**
+
+| Vehicle Class | Shape (β) | Scale (λ) years | Mean Life |
+|---|---|---|---|
+| 2 & 3 Wheelers | 3.5 | 5.0 | ~4.5 yrs |
+| Cars | 3.0 | 10.0 | ~9.0 yrs |
+| Buses | 2.5 | 7.0 | ~6.2 yrs |
+| Vans | 3.0 | 8.0 | ~7.2 yrs |
+
+### 4.3 EOL Convolution Method
+For each cohort of vehicles sold in year $t$, the incremental fraction reaching EOL in year $t+k$ is computed as $f(k) = F(k) - F(k-1)$. Summing across all historical cohorts yields total EOL volume per year.
+
+### 4.4 Key Results
+
+| Year | Projected EOL Batteries |
+|---|---|
+| 2025 | 12,405,339 |
+| 2028 | 23,770,562 |
+| 2030 | 28,368,377 |
+| 2033 | 34,022,998 |
+| 2035 | 37,346,068 |
+
+- **Sanity Check:** Cumulative EOL (309.7M) ≤ Cumulative Sales (529.8M) — **58.45% ratio** ✓
+- The remaining ~41.5% are batteries still in active service by 2035.
+
+### 4.5 Outputs
+- `data/processed/eol_battery_projection.csv`: Year-by-year EOL count by vehicle class.
+- `outputs/eol_projection_plot.png`: Stacked area chart of EOL battery volumes.

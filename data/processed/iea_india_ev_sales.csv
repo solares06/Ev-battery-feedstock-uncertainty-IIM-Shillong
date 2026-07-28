@@ -1,0 +1,150 @@
+region_country,category,parameter,mode,powertrain,year,unit,value,Aggregate group
+India,Historical,EV sales,2 and 3 wheelers,BEV,2010,Vehicles,40000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2011,Vehicles,30000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2012,Vehicles,190000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2013,Vehicles,210000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2014,Vehicles,260000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2015,Vehicles,6900.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2016,Vehicles,49000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2017,Vehicles,85000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2018,Vehicles,130000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2019,Vehicles,160000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2020,Vehicles,120000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2021,Vehicles,320000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2022,Vehicles,980000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2023,Vehicles,1500000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2024,Vehicles,1900000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,BEV,2025,Vehicles,2100000.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2015,Vehicles,100.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2016,Vehicles,25.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2017,Vehicles,20.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2018,Vehicles,210.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2019,Vehicles,460.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2020,Vehicles,2200.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2021,Vehicles,1200.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2022,Vehicles,2000.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2023,Vehicles,2300.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2024,Vehicles,3200.0,Projection_country
+India,Historical,EV sales,Buses,BEV,2025,Vehicles,4300.0,Projection_country
+India,Historical,EV sales,Buses,FCEV,2020,Vehicles,49.0,Projection_country
+India,Historical,EV sales,Buses,FCEV,2022,Vehicles,49.0,Projection_country
+India,Historical,EV sales,Buses,FCEV,2023,Vehicles,2.0,Projection_country
+India,Historical,EV sales,Buses,FCEV,2025,Vehicles,95.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2010,Vehicles,450.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2011,Vehicles,1400.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2012,Vehicles,190.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2013,Vehicles,410.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2014,Vehicles,1000.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2015,Vehicles,450.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2016,Vehicles,730.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2017,Vehicles,920.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2018,Vehicles,920.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2019,Vehicles,680.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2020,Vehicles,3100.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2021,Vehicles,12000.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2022,Vehicles,48000.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2023,Vehicles,82000.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2024,Vehicles,92000.0,Projection_country
+India,Historical,EV sales,Cars,BEV,2025,Vehicles,170000.0,Projection_country
+India,Historical,EV sales,Cars,FCEV,2021,Vehicles,1.0,Projection_country
+India,Historical,EV sales,Cars,FCEV,2022,Vehicles,2.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2019,Vehicles,7.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2020,Vehicles,43.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2021,Vehicles,50.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2022,Vehicles,23.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2023,Vehicles,270.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2024,Vehicles,95.0,Projection_country
+India,Historical,EV sales,Cars,PHEV,2025,Vehicles,100.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2016,Vehicles,180.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2017,Vehicles,1200.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2018,Vehicles,1500.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2019,Vehicles,790.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2020,Vehicles,1000.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2021,Vehicles,1700.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2022,Vehicles,510.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2023,Vehicles,360.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2024,Vehicles,6000.0,Projection_country
+India,Historical,EV sales,Vans,BEV,2025,Vehicles,9200.0,Projection_country
+India,Projection-CPS,EV sales,2 and 3 wheelers,BEV,2035,Vehicles,4900000.0,Projection_country
+India,Projection-CPS,EV sales,Buses,BEV,2035,Vehicles,12000.0,Projection_country
+India,Projection-CPS,EV sales,Buses,FCEV,2035,Vehicles,220.0,Projection_country
+India,Projection-CPS,EV sales,Buses,PHEV,2035,Vehicles,13.0,Projection_country
+India,Projection-CPS,EV sales,Cars,BEV,2035,Vehicles,430000.0,Projection_country
+India,Projection-CPS,EV sales,Trucks,BEV,2035,Vehicles,260.0,Projection_country
+India,Projection-CPS,EV sales,Vans,BEV,2035,Vehicles,14000.0,Projection_country
+India,Projection-CPS,EV sales,Vans,FCEV,2035,Vehicles,13.0,Projection_country
+India,Projection-CPS,EV sales,Vans,PHEV,2035,Vehicles,720.0,Projection_country
+India,Projection-STEPS,EV sales,2 and 3 wheelers,BEV,2035,Vehicles,14000000.0,Projection_country
+India,Projection-STEPS,EV sales,Buses,BEV,2035,Vehicles,78000.0,Projection_country
+India,Projection-STEPS,EV sales,Buses,FCEV,2035,Vehicles,1500.0,Projection_country
+India,Projection-STEPS,EV sales,Buses,PHEV,2035,Vehicles,44.0,Projection_country
+India,Projection-STEPS,EV sales,Cars,BEV,2035,Vehicles,2100000.0,Projection_country
+India,Projection-STEPS,EV sales,Trucks,BEV,2035,Vehicles,13000.0,Projection_country
+India,Projection-STEPS,EV sales,Trucks,FCEV,2035,Vehicles,220.0,Projection_country
+India,Projection-STEPS,EV sales,Trucks,PHEV,2035,Vehicles,220.0,Projection_country
+India,Projection-STEPS,EV sales,Vans,BEV,2035,Vehicles,120000.0,Projection_country
+India,Projection-STEPS,EV sales,Vans,FCEV,2035,Vehicles,310.0,Projection_country
+India,Projection-STEPS,EV sales,Vans,PHEV,2035,Vehicles,6400.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2010,Vehicles,40000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2011,Vehicles,30000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2012,Vehicles,190000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2013,Vehicles,210000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2014,Vehicles,260000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2015,Vehicles,6900.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2016,Vehicles,49000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2017,Vehicles,85000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2018,Vehicles,130000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2019,Vehicles,160000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2020,Vehicles,120000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2021,Vehicles,320000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2022,Vehicles,980000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2023,Vehicles,1500000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2024,Vehicles,1900000.0,Projection_country
+India,Historical,EV sales,2 and 3 wheelers,EV,2025,Vehicles,2100000.0,Projection_country
+India,Historical,EV sales,Buses,EV,2015,Vehicles,100.0,Projection_country
+India,Historical,EV sales,Buses,EV,2016,Vehicles,25.0,Projection_country
+India,Historical,EV sales,Buses,EV,2017,Vehicles,20.0,Projection_country
+India,Historical,EV sales,Buses,EV,2018,Vehicles,210.0,Projection_country
+India,Historical,EV sales,Buses,EV,2019,Vehicles,460.0,Projection_country
+India,Historical,EV sales,Buses,EV,2020,Vehicles,2200.0,Projection_country
+India,Historical,EV sales,Buses,EV,2021,Vehicles,1200.0,Projection_country
+India,Historical,EV sales,Buses,EV,2022,Vehicles,2000.0,Projection_country
+India,Historical,EV sales,Buses,EV,2023,Vehicles,2300.0,Projection_country
+India,Historical,EV sales,Buses,EV,2024,Vehicles,3200.0,Projection_country
+India,Historical,EV sales,Buses,EV,2025,Vehicles,4300.0,Projection_country
+India,Historical,EV sales,Cars,EV,2010,Vehicles,450.0,Projection_country
+India,Historical,EV sales,Cars,EV,2011,Vehicles,1400.0,Projection_country
+India,Historical,EV sales,Cars,EV,2012,Vehicles,190.0,Projection_country
+India,Historical,EV sales,Cars,EV,2013,Vehicles,410.0,Projection_country
+India,Historical,EV sales,Cars,EV,2014,Vehicles,1000.0,Projection_country
+India,Historical,EV sales,Cars,EV,2015,Vehicles,450.0,Projection_country
+India,Historical,EV sales,Cars,EV,2016,Vehicles,730.0,Projection_country
+India,Historical,EV sales,Cars,EV,2017,Vehicles,920.0,Projection_country
+India,Historical,EV sales,Cars,EV,2018,Vehicles,920.0,Projection_country
+India,Historical,EV sales,Cars,EV,2019,Vehicles,690.0,Projection_country
+India,Historical,EV sales,Cars,EV,2020,Vehicles,3200.0,Projection_country
+India,Historical,EV sales,Cars,EV,2021,Vehicles,12000.0,Projection_country
+India,Historical,EV sales,Cars,EV,2022,Vehicles,48000.0,Projection_country
+India,Historical,EV sales,Cars,EV,2023,Vehicles,82000.0,Projection_country
+India,Historical,EV sales,Cars,EV,2024,Vehicles,92000.0,Projection_country
+India,Historical,EV sales,Cars,EV,2025,Vehicles,170000.0,Projection_country
+India,Historical,EV sales,Vans,EV,2016,Vehicles,180.0,Projection_country
+India,Historical,EV sales,Vans,EV,2017,Vehicles,1200.0,Projection_country
+India,Historical,EV sales,Vans,EV,2018,Vehicles,1500.0,Projection_country
+India,Historical,EV sales,Vans,EV,2019,Vehicles,790.0,Projection_country
+India,Historical,EV sales,Vans,EV,2020,Vehicles,1000.0,Projection_country
+India,Historical,EV sales,Vans,EV,2021,Vehicles,1700.0,Projection_country
+India,Historical,EV sales,Vans,EV,2022,Vehicles,510.0,Projection_country
+India,Historical,EV sales,Vans,EV,2023,Vehicles,360.0,Projection_country
+India,Historical,EV sales,Vans,EV,2024,Vehicles,6000.0,Projection_country
+India,Historical,EV sales,Vans,EV,2025,Vehicles,9200.0,Projection_country
+India,Projection-CPS,EV sales,2 and 3 wheelers,EV,2035,Vehicles,4900000.0,Projection_country
+India,Projection-CPS,EV sales,Buses,EV,2035,Vehicles,12000.0,Projection_country
+India,Projection-CPS,EV sales,Cars,EV,2035,Vehicles,430000.0,Projection_country
+India,Projection-CPS,EV sales,Trucks,EV,2035,Vehicles,260.0,Projection_country
+India,Projection-CPS,EV sales,Vans,EV,2035,Vehicles,14000.0,Projection_country
+India,Projection-STEPS,EV sales,2 and 3 wheelers,EV,2035,Vehicles,14000000.0,Projection_country
+India,Projection-STEPS,EV sales,Buses,EV,2035,Vehicles,78000.0,Projection_country
+India,Projection-STEPS,EV sales,Cars,EV,2035,Vehicles,2100000.0,Projection_country
+India,Projection-STEPS,EV sales,Trucks,EV,2035,Vehicles,13000.0,Projection_country
+India,Projection-STEPS,EV sales,Vans,EV,2035,Vehicles,130000.0,Projection_country

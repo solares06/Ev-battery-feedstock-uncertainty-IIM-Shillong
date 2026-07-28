@@ -1,0 +1,65 @@
+region_country,category,parameter,mode,powertrain,year,unit,value,Aggregate group
+India,Projection-CPS,Battery deployment,2 and 3 wheelers,EV,2035,GWh,22.0,Projection_country
+India,Projection-CPS,Battery deployment,Buses,EV,2035,GWh,3.1,Projection_country
+India,Projection-CPS,Battery deployment,Cars,EV,2035,GWh,28.0,Projection_country
+India,Projection-CPS,Battery deployment,Trucks,EV,2035,GWh,0.08,Projection_country
+India,Projection-CPS,Battery deployment,Vans,EV,2035,GWh,0.71,Projection_country
+India,Projection-STEPS,Battery deployment,2 and 3 wheelers,EV,2035,GWh,65.0,Projection_country
+India,Projection-STEPS,Battery deployment,Buses,EV,2035,GWh,20.0,Projection_country
+India,Projection-STEPS,Battery deployment,Cars,EV,2035,GWh,140.0,Projection_country
+India,Projection-STEPS,Battery deployment,Trucks,EV,2035,GWh,4.7,Projection_country
+India,Projection-STEPS,Battery deployment,Vans,EV,2035,GWh,6.3,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2015,GWh,0.0026,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2016,GWh,0.04,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2017,GWh,0.072,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2018,GWh,0.14,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2019,GWh,0.22,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2020,GWh,0.21,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2021,GWh,0.67,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2022,GWh,3.2,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2023,GWh,5.4,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2024,GWh,7.4,Projection_country
+India,Historical,Battery deployment,2 and 3 wheelers,EV,2025,GWh,9.8,Projection_country
+India,Historical,Battery deployment,Buses,EV,2015,GWh,0.025,Projection_country
+India,Historical,Battery deployment,Buses,EV,2016,GWh,0.0057,Projection_country
+India,Historical,Battery deployment,Buses,EV,2017,GWh,0.0041,Projection_country
+India,Historical,Battery deployment,Buses,EV,2018,GWh,0.05,Projection_country
+India,Historical,Battery deployment,Buses,EV,2019,GWh,0.11,Projection_country
+India,Historical,Battery deployment,Buses,EV,2020,GWh,0.51,Projection_country
+India,Historical,Battery deployment,Buses,EV,2021,GWh,0.28,Projection_country
+India,Historical,Battery deployment,Buses,EV,2022,GWh,0.45,Projection_country
+India,Historical,Battery deployment,Buses,EV,2023,GWh,0.55,Projection_country
+India,Historical,Battery deployment,Buses,EV,2024,GWh,0.78,Projection_country
+India,Historical,Battery deployment,Buses,EV,2025,GWh,1.0,Projection_country
+India,Historical,Battery deployment,Cars,EV,2015,GWh,0.0045,Projection_country
+India,Historical,Battery deployment,Cars,EV,2016,GWh,0.0073,Projection_country
+India,Historical,Battery deployment,Cars,EV,2017,GWh,0.0099,Projection_country
+India,Historical,Battery deployment,Cars,EV,2018,GWh,0.017,Projection_country
+India,Historical,Battery deployment,Cars,EV,2019,GWh,0.023,Projection_country
+India,Historical,Battery deployment,Cars,EV,2020,GWh,0.11,Projection_country
+India,Historical,Battery deployment,Cars,EV,2021,GWh,0.37,Projection_country
+India,Historical,Battery deployment,Cars,EV,2022,GWh,1.6,Projection_country
+India,Historical,Battery deployment,Cars,EV,2023,GWh,2.8,Projection_country
+India,Historical,Battery deployment,Cars,EV,2024,GWh,3.2,Projection_country
+India,Historical,Battery deployment,Cars,EV,2025,GWh,7.6,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2015,GWh,0.0022,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2016,GWh,0.0054,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2017,GWh,0.0033,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2018,GWh,0.0023,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2019,GWh,0.0041,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2020,GWh,0.0047,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2021,GWh,0.006,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2022,GWh,0.0015,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2023,GWh,0.11,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2024,GWh,0.067,Projection_country
+India,Historical,Battery deployment,Trucks,EV,2025,GWh,0.24,Projection_country
+India,Historical,Battery deployment,Vans,EV,2016,GWh,0.0053,Projection_country
+India,Historical,Battery deployment,Vans,EV,2017,GWh,0.037,Projection_country
+India,Historical,Battery deployment,Vans,EV,2018,GWh,0.045,Projection_country
+India,Historical,Battery deployment,Vans,EV,2019,GWh,0.024,Projection_country
+India,Historical,Battery deployment,Vans,EV,2020,GWh,0.051,Projection_country
+India,Historical,Battery deployment,Vans,EV,2021,GWh,0.1,Projection_country
+India,Historical,Battery deployment,Vans,EV,2022,GWh,0.033,Projection_country
+India,Historical,Battery deployment,Vans,EV,2023,GWh,0.0098,Projection_country
+India,Historical,Battery deployment,Vans,EV,2024,GWh,0.13,Projection_country
+India,Historical,Battery deployment,Vans,EV,2025,GWh,0.2,Projection_country

@@ -1,0 +1,22 @@
+=== SMIP OPTIMIZATION RESULTS ===
+Status: Optimal
+Objective Value (Expected Cost): $-197,507,847.40
+
+--- FIRST STAGE DECISIONS (Here-and-Now) ---
+[OPEN] Facility: Delhi_NCR | Designed Capacity: 8,324,731 batteries
+[OPEN] Facility: Chennai_Hub | Designed Capacity: 14,984,516 batteries
+[OPEN] Facility: Pune_Hub | Designed Capacity: 9,989,677 batteries
+
+--- SECOND STAGE RECOURSE SUMMARY ---
+
+Scenario: Pessimistic (Prob: 0.25)
+  Processed in Formal Recycling: 23,428,121 batteries
+  Lost to Informal Sector:       0 batteries
+
+Scenario: Base (Prob: 0.5)
+  Processed in Formal Recycling: 28,368,374 batteries
+  Lost to Informal Sector:       0 batteries
+
+Scenario: Optimistic (Prob: 0.25)
+  Processed in Formal Recycling: 33,298,924 batteries
+  Lost to Informal Sector:       0 batteries

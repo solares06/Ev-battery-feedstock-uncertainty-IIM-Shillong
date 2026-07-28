@@ -172,3 +172,22 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 ### 5.4 Outputs
 - `data/processed/smip_feedstock_scenarios.csv`: The master matrix formatted for Python solvers (Pyomo/Gurobi). Format: `Year, Scenario, Probability, Vehicle_Class, Chemistry, EOL_Volume`.
 - `outputs/scenario_funnel_plot.png`: A funnel chart visualizing the bounds of uncertainty over time.
+
+---
+
+## Phase 6: Baseline SMIP Formulation
+
+**Objective:** Formulate and solve the Two-Stage Stochastic Mixed-Integer Programming (SMIP) model using Python (`PuLP`).
+
+### 6.1 Mathematical Formulation
+- **First-Stage Decisions (Here-and-Now):** Binary location variables ($y_j$) and continuous capacity variables ($Cap_j$) for 3 potential facilities (Delhi, Chennai, Pune).
+- **Second-Stage Decisions (Wait-and-See):** Routing variables for formal material flow ($x_{ijs}^c$) and batteries lost to the informal sector ($z_{is}^c$).
+- **Objective:** Minimize Expected Total Cost (Fixed + Capacity + Expected[Transport + Informal Penalties - Black Mass Revenue]).
+
+### 6.2 Spatial Assumptions (Prototype)
+- The national feedstock from Phase 5 was geographically apportioned into 5 generic supply zones (North, South, East, West, Central) based on standard proxy density ratios.
+
+### 6.3 Optimization Results
+- The solver (CBC) achieved an **Optimal** solution.
+- The model opened all 3 facilities and installed enough cumulative capacity to handle the Optimistic scenario volume.
+- As a result of balancing penalty costs vs capacity costs, 0 batteries were lost to the informal sector in the optimal network design.

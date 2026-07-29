@@ -7,7 +7,7 @@ We consolidated all the 7 VAHAN `reportTable*.xlsx` files into a single, structu
 
 - **Start Date:** January 2020
 - **End Date:** July 2026
-- **Processed File:** [vahan_registrations.csv](file:///media/souranil/Workspace%201/Research%20Internship/IIM%20Shillong/Feedstock%20Uncertainity%20/data/processed/vahan_registrations.csv)
+- **Processed File:** [vahan_registrations.csv](../data/processed/vahan_registrations.csv)
 
 ## 2. Total Registrations Trend
 

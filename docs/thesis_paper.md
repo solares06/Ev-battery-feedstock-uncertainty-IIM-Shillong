@@ -87,7 +87,14 @@ The decomposition isolates the complex First-Stage binary facility decisions (Ma
 
 ---
 
-## 6. Conclusion
+## 6. Limitations & Future Work
+While this study establishes a comprehensive stochastic baseline, the informal sector is currently modeled via a fixed per-battery penalty cost (a continuous slack variable in the SMIP) rather than a true price-competitive Stackelberg game. Under current macroeconomic cost parameters (where NMC/LFP recovery revenue significantly exceeds transportation and capacity capital costs), the model structure intrinsically prefers building formal capacity over incurring the environmental penalty. Consequently, the "0% informal loss across all penalty levels" result is partly a structural artifact of the problem formulation, rather than a pure economic equilibrium finding. 
+
+The natural next step for this research is to reformulate the informal sector as a secondary, active agent within a bi-level game-theoretic framework (e.g., Stackelberg competition). In such a model, the informal sector would dynamically set its own collection prices to cannibalize formal feedstock, thereby forcing the formal sector to optimize not just its spatial topology, but its strategic procurement pricing.
+
+---
+
+## 7. Conclusion
 This thesis successfully constructs an end-to-end, AI-driven reverse supply chain framework tailored for India's unique EV ecosystem. By integrating machine learning forecasting, stochastic uncertainty quantification, and Mixed-Integer Programming, the model provides actionable, data-backed intelligence for policymakers and private recyclers. 
 
 The results definitively prove that formal EV battery recycling in India will be highly profitable by 2030 (~130 GWh scale). Furthermore, if initial capital investments in strategic hubs (like Ahmedabad and Chennai) are supported, the formal sector can naturally outcompete the informal sector through free-market economics, without relying strictly on punitive regulatory enforcement.

@@ -54,7 +54,7 @@ This document tracks the technical implementation, dataset details, and methodol
 **Objective:** Clean the raw VAHAN data, visualize adoption trends, and test for time-series stationarity to inform the Phase 3 forecasting model architecture.
 
 ### 2.1 Raw Data Processing
-- **Script:** `scripts/process_vahan_data.py`
+- **Script:** `scripts/phase0_process_vahan_data.py`
 - **Procedure:** 
   - Iterated over the 7 VAHAN Excel files.
   - Extracted the Year from the header, State from the index, and mapped the monthly columns.
@@ -62,7 +62,7 @@ This document tracks the technical implementation, dataset details, and methodol
 - **Output:** `data/processed/vahan_registrations.csv` (2,844 records).
 
 ### 2.2 Visualizations & Seasonal Decomposition
-- **Script:** `scripts/eda_vahan.py`
+- **Script:** `scripts/phase2_eda_vahan.py`, `scripts/phase2b_eda_exogenous.py`
 - **Procedure:** Aggregated the dataset nationally to plot total monthly registrations. Used `statsmodels.tsa.seasonal_decompose` to break the series into Trend, Seasonal, and Residual components.
 - **Observation:** The data exhibits a massive, non-linear upward trend and strong seasonality (spikes near financial year-end / festive seasons).
 
@@ -81,8 +81,8 @@ This document tracks the technical implementation, dataset details, and methodol
 
 ### 3.1 Model Architecture
 - **Framework:** Meta Prophet with exogenous regressors.
-- **Script:** `scripts/train_forecast_model.py`
-- **Rationale:** Prophet was chosen over SARIMAX because it natively handles strong non-linear growth trends (characteristic of EV adoption S-curves) and seamlessly incorporates boolean exogenous variables without requiring manual differencing.
+- **Script:** `scripts/phase3_train_forecast_model.py`
+- **Rationale:** Prophet was chosen over SARIMAX because it natively handles strong non-linear growth trends (characteristic of EV adoption S-curves) and seamlessly incorporates `scripts/phase1_process_exogenous.py` variables without requiring manual differencing.
 
 ### 3.2 Configuration
 - **Target Variable (y):** Monthly national EV registrations (aggregated from VAHAN data).

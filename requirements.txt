@@ -2,9 +2,9 @@ pandas
 numpy
 statsmodels
 prophet
-lifelines
+scipy
+pulp
 scikit-learn
-lightgbm
 matplotlib
 seaborn
 openpyxl

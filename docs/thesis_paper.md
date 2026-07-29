@@ -97,11 +97,11 @@ The natural next step for this research is to reformulate the informal sector as
 ## 7. Conclusion
 This thesis successfully constructs an end-to-end, AI-driven reverse supply chain framework tailored for India's unique EV ecosystem. By integrating machine learning forecasting, stochastic uncertainty quantification, and Mixed-Integer Programming, the model provides actionable, data-backed intelligence for policymakers and private recyclers. 
 
-The results definitively prove that formal EV battery recycling in India will be highly profitable by 2030 (~130 GWh scale). Furthermore, if initial capital investments in strategic hubs (like Ahmedabad and Chennai) are supported, the formal sector can naturally outcompete the informal sector through free-market economics, without relying strictly on punitive regulatory enforcement.
+The results definitively prove that formal EV battery recycling in India will be highly profitable by 2030 (~130 GWh scale). Furthermore, if initial capital investments in strategic hubs (like Ahmedabad and Chennai) are supported, the model suggests formal recycling can be economically self-sustaining under current cost assumptions, though this result is highly sensitive to the informal-sector formulation discussed above.
 
 ---
 
-## 7. References
+## 8. References
 1. NITI Aayog. (2022). *Advanced Chemistry Cell Battery Reuse and Recycling Market in India*. Government of India.
 2. VAHAN Dashboard. (2026). *Electric Vehicle Registration Data*. Ministry of Road Transport and Highways, India.
 3. International Energy Agency (IEA). (2023). *Global EV Outlook*.

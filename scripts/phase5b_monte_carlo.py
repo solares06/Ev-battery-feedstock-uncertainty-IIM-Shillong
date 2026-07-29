@@ -243,7 +243,6 @@ ax.set_xlim(2020, 2035)
 
 plt.tight_layout()
 plt.savefig("outputs/mc_spaghetti_plot.png", dpi=300)
-os.system("cp outputs/mc_spaghetti_plot.png docs/")
 plt.close()
 
 print("\nGenerated: outputs/mc_spaghetti_plot.png")

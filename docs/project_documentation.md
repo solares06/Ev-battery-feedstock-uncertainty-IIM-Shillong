@@ -131,6 +131,8 @@ This document tracks the technical implementation, dataset details, and methodol
 | Buses | 2.5 | 7.0 | ~6.2 yrs |
 | Vans | 3.0 | 8.0 | ~7.2 yrs |
 
+**Note on Parameter Sourcing:** The Weibull shape and scale parameters above are order-of-magnitude estimates based on plausible assumptions (documented inline in `scripts/phase4_eol_projection.py`). They are not empirically calibrated figures. Future work should replace these with parameters calibrated against disclosed industry data and real-world EV battery degradation rates.
+
 ### 4.3 EOL Convolution Method
 For each cohort of vehicles sold in year $t$, the incremental fraction reaching EOL in year $t+k$ is computed as $f(k) = F(k) - F(k-1)$. Summing across all historical cohorts yields total EOL volume per year.
 
@@ -216,6 +218,8 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 - Transport: ₹0.08/battery/km using approximate inter-state capital distances.
 - Informal Penalty: ₹2,000/battery.
 - NMC Revenue: ₹2,800/battery; LFP Revenue: ₹650/battery.
+
+**Note on Parameter Sourcing:** The economic parameters listed above (facility fixed costs of ₹30-40 Crore, informal penalty of ₹2,000/battery, and black mass revenues) are currently order-of-magnitude estimates based on plausible reasoning (documented in `scripts/phase7_state_level_smip.py`). They are not yet empirically sourced figures. Future implementation should calibrate these inputs against disclosed industry figures (e.g., Lohum/Attero capex disclosures, CPCB/EPR certificate pricing, and actual black mass market rates) to validate the economic equilibrium findings.
 
 ### 7.4 Optimization Results (2030)
 - **Optimal Expected Cost: ₹-1,895 Crore** (net profit due to high NMC recovery value).

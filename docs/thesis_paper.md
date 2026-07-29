@@ -55,6 +55,8 @@ $$ \min \sum_{j} (Fixed_j \cdot y_j + UnitCap \cdot cap_j) + \sum_{s} P_s \left[
 
 Where $Rev_c$ represents the highly variable market value of recovered black mass (₹2,800 for NMC; ₹650 for LFP).
 
+**Parameter Sourcing Disclosure:** It is important to note that several cost and behavioral parameters in this model—including facility fixed costs (₹35-40 Cr per facility), the informal sector penalty cost (₹2,000/battery), black mass revenue (₹2,800/battery NMC, ₹650/battery LFP), and vehicle-class Weibull survival shape/scale parameters—are currently order-of-magnitude estimates based on plausible reasoning (documented inline within the codebase). They are not yet empirically sourced figures. Future work should replace these assumptions with parameters calibrated against disclosed industry data (e.g., Lohum/Attero capex disclosures, CPCB/EPR certificate pricing, actual black mass market rates) rather than assumed constants.
+
 ---
 
 ## 4. Results & Analysis

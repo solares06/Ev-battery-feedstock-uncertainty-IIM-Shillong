@@ -2,57 +2,85 @@
 STATE-LEVEL SMIP OPTIMIZATION RESULTS (Year 2030, INR)
 ======================================================================
 Status: Optimal
-Objective Value (Expected Cost): ₹-18,952,172,362
-  = ₹-1895.22 Crore
+Objective Value (Expected Cost): ₹-20,646,115,366
+  = ₹-2064.61 Crore
 
 --- FIRST STAGE: FACILITY DECISIONS ---
   [CLOSED] Delhi_NCR: Capacity = 0 batteries
-  [OPEN] Chennai: Capacity = 8,565,205 batteries
+  [OPEN] Chennai: Capacity = 7,454,902 batteries
   [CLOSED] Pune: Capacity = 0 batteries
   [CLOSED] Hyderabad: Capacity = 0 batteries
-  [OPEN] Ahmedabad: Capacity = 20,181,361 batteries
-  [OPEN] Kolkata: Capacity = 4,552,359 batteries
+  [OPEN] Ahmedabad: Capacity = 17,565,261 batteries
+  [OPEN] Kolkata: Capacity = 3,962,239 batteries
 
 --- SECOND STAGE: SCENARIO RECOURSE ---
 
-  Scenario: Pessimistic (Prob: 0.25)
-    Formal Recycling:          23,428,121 batteries
+  Scenario: S1 (Prob: 0.2201)
+    Formal Recycling:          27,949,165 batteries
     Informal Sector Loss:               0 batteries
     Informal Loss Rate:   0.0%
     Top State→Facility Flows:
-      UP → Ahmedabad     :    4,575,391
-      MH → Ahmedabad     :    3,455,330
-      TN → Chennai       :    2,504,344
-      GJ → Ahmedabad     :    2,266,782
-      KA → Chennai       :    2,208,131
-      MP → Ahmedabad     :    1,984,583
-      RJ → Ahmedabad     :    1,916,912
-      BR → Kolkata       :    1,706,808
+      UP → Ahmedabad     :    5,458,328
+      MH → Ahmedabad     :    4,122,123
+      TN → Chennai       :    2,987,620
+      GJ → Ahmedabad     :    2,704,214
+      KA → Chennai       :    2,634,245
+      MP → Ahmedabad     :    2,367,558
+      RJ → Ahmedabad     :    2,286,829
+      BR → Kolkata       :    2,036,179
 
-  Scenario: Base (Prob: 0.5)
-    Formal Recycling:          28,368,374 batteries
+  Scenario: S2 (Prob: 0.196)
+    Formal Recycling:          28,069,809 batteries
     Informal Sector Loss:               0 batteries
     Informal Loss Rate:   0.0%
     Top State→Facility Flows:
-      UP → Ahmedabad     :    5,540,197
-      MH → Ahmedabad     :    4,183,950
-      TN → Chennai       :    3,032,431
-      GJ → Ahmedabad     :    2,744,775
-      KA → Chennai       :    2,673,756
-      MP → Ahmedabad     :    2,403,069
-      RJ → Ahmedabad     :    2,321,129
-      BR → Kolkata       :    2,066,720
+      UP → Ahmedabad     :    5,481,889
+      MH → Ahmedabad     :    4,139,916
+      TN → Chennai       :    3,000,516
+      GJ → Ahmedabad     :    2,715,887
+      KA → Chennai       :    2,645,616
+      MP → Ahmedabad     :    2,377,777
+      RJ → Ahmedabad     :    2,296,700
+      BR → Kolkata       :    2,044,968
 
-  Scenario: Optimistic (Prob: 0.25)
-    Formal Recycling:          33,298,924 batteries
+  Scenario: S3 (Prob: 0.1899)
+    Formal Recycling:          28,207,966 batteries
     Informal Sector Loss:               0 batteries
     Informal Loss Rate:   0.0%
     Top State→Facility Flows:
-      UP → Ahmedabad     :    6,503,108
-      MH → Ahmedabad     :    4,911,140
-      TN → Chennai       :    3,559,481
-      GJ → Ahmedabad     :    3,221,829
-      KA → Chennai       :    3,138,467
-      MP → Ahmedabad     :    2,820,733
-      RJ → Ahmedabad     :    2,724,551
-      BR → Kolkata       :    2,425,925
+      UP → Ahmedabad     :    5,508,870
+      MH → Ahmedabad     :    4,160,292
+      TN → Chennai       :    3,015,284
+      GJ → Ahmedabad     :    2,729,255
+      KA → Chennai       :    2,658,638
+      MP → Ahmedabad     :    2,389,481
+      RJ → Ahmedabad     :    2,308,004
+      BR → Kolkata       :    2,055,034
+
+  Scenario: S4 (Prob: 0.1893)
+    Formal Recycling:          28,517,609 batteries
+    Informal Sector Loss:               0 batteries
+    Informal Loss Rate:   0.0%
+    Top State→Facility Flows:
+      UP → Ahmedabad     :    5,569,342
+      MH → Ahmedabad     :    4,205,961
+      TN → Chennai       :    3,048,383
+      GJ → Ahmedabad     :    2,759,214
+      KA → Chennai       :    2,687,822
+      MP → Ahmedabad     :    2,415,710
+      RJ → Ahmedabad     :    2,333,339
+      BR → Kolkata       :    2,077,592
+
+  Scenario: S5 (Prob: 0.2047)
+    Formal Recycling:          28,982,402 batteries
+    Informal Sector Loss:               0 batteries
+    Informal Loss Rate:   0.0%
+    Top State→Facility Flows:
+      UP → Ahmedabad     :    5,660,114
+      MH → Ahmedabad     :    4,274,511
+      TN → Chennai       :    3,098,067
+      GJ → Ahmedabad     :    2,804,185
+      KA → Chennai       :    2,731,629
+      MP → Ahmedabad     :    2,455,083
+      RJ → Ahmedabad     :    2,371,369
+      BR → Kolkata       :    2,111,454

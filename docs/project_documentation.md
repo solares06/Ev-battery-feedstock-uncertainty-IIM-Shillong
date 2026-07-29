@@ -144,7 +144,7 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 | 2033 | 34,022,998 |
 | 2035 | 37,346,068 |
 
-- **Sanity Check:** Cumulative EOL (309.7M) ≤ Cumulative Sales (529.8M) — **58.45% ratio** ✓
+- **Sanity Check:** Cumulative EOL (309.7M) ≤ Cumulative Sales (529.8M) - **58.45% ratio** ✓
 - The remaining ~41.5% are batteries still in active service by 2035.
 
 ### 4.5 Outputs
@@ -153,25 +153,31 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 
 ---
 
-## Phase 5: SMIP Scenario Generation
+## Phase 5: Monte Carlo Scenario Generation & Reduction
 
-**Objective:** Generate discrete feedstock scenarios (Pessimistic, Base, Optimistic) with probability weights and chemistry splits to serve as direct inputs for the Two-Stage Stochastic Mixed-Integer Programming (SMIP) model.
+**Objective:** Generate discrete feedstock scenarios with proper probabilistic uncertainty quantification using Monte Carlo simulation, then reduce the generated paths using K-means clustering to serve as direct inputs for the Two-Stage Stochastic Mixed-Integer Programming (SMIP) model.
 
-### 5.1 Uncertainty Bounds
-- Extracted `yhat_lower`, `Forecast_Registrations`, and `yhat_upper` from the Prophet model.
-- Applied the Weibull survival convolution to all three bounds independently.
+### 5.1 Monte Carlo Simulation (10,000 Paths)
+- Extracted annual forecast variance ($\sigma$) from the Prophet model's 80% confidence interval.
+- **DGP (Data Generating Process):** Sampled $N=10,000$ independent annual sales paths from $\mathcal{N}(\mu_{year}, \sigma_{year})$.
+- Applied the Weibull survival convolution to all 10,000 paths using a vectorized matrix multiplication for computational efficiency.
+- This yielded a dense probability cloud of future End-of-Life (EOL) battery volumes from 2020–2035.
 
-### 5.2 Scenario Probabilities
-- **Pessimistic (yhat_lower):** 25% Probability
-- **Base (yhat):** 50% Probability
-- **Optimistic (yhat_upper):** 25% Probability
+### 5.2 Scenario Reduction (K-Means Clustering)
+- Standardized the 10,000 paths so variance in early vs late years contributed equally.
+- **Optimal K Selection:** Evaluated $K \in [3, 12]$ using the Silhouette score. The score peaked at $K=5$, which satisfies the project's constraint of 5–10 scenarios.
+- Ran K-Means with $K=5$ and selected the actual Monte Carlo path closest to each cluster's centroid (medoid approximation).
+- Probabilities were assigned based on cluster density (size of cluster $k$ / $N_{total}$).
 
 ### 5.3 Chemistry Disaggregation
-- Each vehicle class cohort's EOL volume is multiplied by the historical `LFP_Share` and `NMC_Share` for the year that cohort was originally sold (using data from `chemistry_mix.csv`).
+- Each vehicle class cohort's EOL volume in the representative scenarios is multiplied by the historical `LFP_Share` and `NMC_Share` for the year that cohort was originally sold (using data from `chemistry_mix.csv`).
 
 ### 5.4 Outputs
-- `data/processed/smip_feedstock_scenarios.csv`: The master matrix formatted for Python solvers (Pyomo/Gurobi). Format: `Year, Scenario, Probability, Vehicle_Class, Chemistry, EOL_Volume`.
-- `outputs/scenario_funnel_plot.png`: A funnel chart visualizing the bounds of uncertainty over time.
+- `data/processed/mc_eol_paths_raw.csv`: Raw 10,000 EOL Monte Carlo paths.
+- `data/processed/smip_scenarios_mc_reduced.csv`: The master reduced scenario matrix. Format: `Year, Scenario, Probability, Vehicle_Class, Chemistry, EOL_Volume`.
+- `outputs/mc_spaghetti_plot.png`: A plot showing the median path and 5th-95th percentile confidence bands across the 10,000 paths.
+- `outputs/scenario_k_selection.png`: Silhouette score and Elbow plot used for selecting K=5.
+- `outputs/representative_scenarios_overlay.png`: A plot highlighting the 5 representative paths overlaying the Monte Carlo cloud.
 
 ---
 
@@ -215,7 +221,7 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 - **Optimal Expected Cost: ₹-1,895 Crore** (net profit due to high NMC recovery value).
 - **Facilities Opened:** Ahmedabad (20.2M capacity), Chennai (8.6M), Kolkata (4.6M).
 - **Facilities NOT Opened:** Delhi NCR, Pune, Hyderabad.
-- **Informal Sector Loss: 0%** across all scenarios — the formal network is profitable enough to capture all feedstock.
+- **Informal Sector Loss: 0%** across all scenarios - the formal network is profitable enough to capture all feedstock.
 
 ---
 
@@ -231,9 +237,30 @@ For each cohort of vehicles sold in year $t$, the incremental fraction reaching 
 
 ### 8.2 Key Findings
 - **NMC Revenue:** The network structure (3 facilities) is stable across all NMC prices. Even at ₹500/battery, formal recycling remains profitable. This means the model is robust to NMC price crashes.
-- **Informal Sector:** With current NMC/LFP revenues, informal sector leakage is 0% across ALL penalty levels — even at ₹100 penalty. The formal network is inherently more profitable than abandoning batteries.
+- **Informal Sector:** With current NMC/LFP revenues, informal sector leakage is 0% across ALL penalty levels - even at ₹100 penalty. The formal network is inherently more profitable than abandoning batteries.
 - **Fixed Costs:** As facility costs rise (1.5x → 5x), the optimizer consolidates from 3 facilities to just 1 (Ahmedabad), accepting higher transport costs to avoid fixed cost overhead.
 - **Transport Costs:** As transport costs rise, the optimizer opens MORE facilities (up to all 6) to minimize long-haul shipments. This is the classic facility location trade-off.
+
+---
+
+## Phase 8b: NITI Aayog Benchmark Validation
+
+**Objective:** Validate the model's cumulative 2030 battery EOL projections against the NITI Aayog report ("Advanced Chemistry Cell Battery Reuse and Recycling Market in India"), which projects an addressable market of ~128 GWh by 2030.
+
+### 8b.1 Conversion Methodology
+- Extracted the probability-weighted expected EOL volume for 2030 across all vehicle classes.
+- Converted battery counts to GWh using standard proxy battery capacities: 
+  - 2 & 3 Wheelers: ~3.5 kWh
+  - Cars: ~30.0 kWh
+  - Vans: ~40.0 kWh
+  - Buses/Trucks: ~150.0 kWh
+
+### 8b.2 Validation Results
+- **Expected 2030 EOL Batteries (Count):** 28.34 million batteries
+- **Expected 2030 EOL Capacity (GWh):** ~130.69 GWh
+- **NITI Aayog Benchmark:** ~128.0 GWh
+- **Difference:** +2.69 GWh (+2.1%)
+- **Conclusion:** The projection generated by the Prophet + Weibull pipeline is remarkably well-aligned with external macroeconomic estimates from NITI Aayog, falling well within an acceptable ±25% margin of error.
 
 ---
 

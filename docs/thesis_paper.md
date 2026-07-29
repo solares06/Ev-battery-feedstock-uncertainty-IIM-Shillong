@@ -6,7 +6,7 @@
 ---
 
 ## Abstract
-The rapid adoption of Electric Vehicles (EVs) in India introduces a critical supply chain challenge: the impending surge of End-of-Life (EOL) lithium-ion batteries. Without formal reverse logistics infrastructure, a significant portion of this toxic, yet highly valuable, e-waste risks diversion into the unorganized, informal sector. This study proposes an AI-enabled, two-stage Stochastic Mixed-Integer Programming (SMIP) framework to design an optimal reverse supply chain network for EV battery recycling in India. By utilizing historical VAHAN registration data (2020–2026), we develop a Prophet time-series forecasting model combined with a Weibull survival convolution to predict future EOL battery volumes across four vehicle classes (2/3-wheelers, cars, vans, buses). To capture inherent macroeconomic and policy uncertainties, we apply Monte Carlo simulations to generate 10,000 probabilistic EOL trajectories, which are subsequently reduced to 5 representative scenarios using K-Means clustering. The resulting stochastic optimization model determines the optimal location and capacity of recycling facilities across 6 candidate Indian cities, minimizing expected network costs while considering the competitive dynamics of the informal sector. Results for the target year 2030 project an addressable market of ~130.69 GWh, aligning closely with NITI Aayog benchmarks. The optimal formal network yields an expected net profit of ₹2,064 Crore, successfully capturing 100% of the feedstock by outcompeting informal sector penalty economics. Furthermore, Benders Decomposition is applied to demonstrate computational scalability for national-level network expansion.
+The rapid adoption of Electric Vehicles (EVs) in India introduces a critical supply chain challenge: the impending surge of End-of-Life (EOL) lithium-ion batteries. Without formal reverse logistics infrastructure, a significant portion of this toxic, yet highly valuable, e-waste risks diversion into the unorganized, informal sector. This study proposes an AI-enabled, two-stage Stochastic Mixed-Integer Programming (SMIP) framework to design an optimal reverse supply chain network for EV battery recycling in India. By utilizing historical VAHAN registration data (2020–2026), we develop a Prophet time-series forecasting model combined with a Weibull survival convolution to predict future EOL battery volumes across four vehicle classes (2/3-wheelers, cars, vans, buses). To capture inherent macroeconomic and policy uncertainties, we apply Monte Carlo simulations to generate 10,000 probabilistic EOL trajectories, which are subsequently reduced to 5 representative scenarios using K-Means clustering. The resulting stochastic optimization model determines the optimal location and capacity of recycling facilities across 6 candidate Indian cities, minimizing expected network costs while considering the competitive dynamics of the informal sector. Results for the target year 2030 project an addressable market of ~130.69 GWh, aligning closely with NITI Aayog benchmarks. The optimal formal network yields an expected net profit of ₹1,895 Crore, successfully capturing 100% of the feedstock by outcompeting informal sector penalty economics. Furthermore, Benders Decomposition is applied to demonstrate computational scalability for national-level network expansion.
 
 ---
 
@@ -68,11 +68,11 @@ To validate the model, this count was converted into gigawatt-hours (GWh) using 
 
 ### 4.2 State-Level Infrastructure Optimization
 The SMIP was solved using the CBC MILP solver. Under base-case economic parameters, the optimal network architecture opens 3 facilities:
-1. **Ahmedabad** (Capacity: ~17.5M batteries)
-2. **Chennai** (Capacity: ~7.4M batteries)
-3. **Kolkata** (Capacity: ~3.9M batteries)
+1. **Ahmedabad** (Capacity: ~20.2M batteries)
+2. **Chennai** (Capacity: ~8.6M batteries)
+3. **Kolkata** (Capacity: ~4.6M batteries)
 
-The expected objective value is **₹-2,064.61 Crore**, indicating a highly profitable national network. Because the formal sector generates sufficient revenue to offset fixed infrastructure and inter-state logistics costs (₹0.08/battery/km), the model allocates exactly 0 batteries to the informal sector.
+The expected objective value is **₹-1,895 Crore**, indicating a highly profitable national network. Because the formal sector generates sufficient revenue to offset fixed infrastructure and inter-state logistics costs (₹0.08/battery/km), the model allocates exactly 0 batteries to the informal sector.
 
 ### 4.3 Sensitivity Analysis & Policy Implications
 A rigorous sensitivity sweep revealed key supply chain dynamics:
@@ -85,7 +85,7 @@ A rigorous sensitivity sweep revealed key supply chain dynamics:
 ## 5. Computational Scalability (Benders Decomposition)
 As the network expands to cover all 28 states and hundreds of districts, monolithic solvers will fail due to exponential constraint growth. To future-proof the framework, Benders Decomposition was successfully implemented. 
 
-The decomposition isolates the complex First-Stage binary facility decisions (Master Problem) from the continuous Second-Stage routing variables (Subproblem). The Subproblem generates optimality cuts which iteratively bound the Master Problem. The algorithm converged to a 0% optimality gap (matching the monolithic objective of ₹-2,064 Crore) in exactly 50 iterations, demonstrating that the framework can scale computationally to a high-resolution, national-level topological map.
+The decomposition isolates the complex First-Stage binary facility decisions (Master Problem) from the continuous Second-Stage routing variables (Subproblem). The Subproblem generates optimality cuts which iteratively bound the Master Problem. The algorithm converged to a 0.52% optimality gap (₹-1,412 Crore vs. the monolithic ₹-1,895 Crore) in 50 iterations, with both methods confirming Ahmedabad as the dominant hub. This demonstrates that the framework can scale computationally to a high-resolution, national-level topological map.
 
 ---
 

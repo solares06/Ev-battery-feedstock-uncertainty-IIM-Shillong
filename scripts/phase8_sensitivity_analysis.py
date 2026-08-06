@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import os
 import copy
 
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase8_sensitivity", exist_ok=True)
 
 print("=" * 60)
 print("Phase 8: Sensitivity Analysis")
@@ -134,7 +134,7 @@ def solve_smip(
 # ==============================================================================
 # LOAD BASE PARAMETERS (Same as Phase 7)
 # ==============================================================================
-vahan_df = pd.read_csv("data/processed/vahan_registrations.csv")
+vahan_df = pd.read_csv("data/processed/vahan/vahan_registrations.csv")
 state_totals = (
     vahan_df.groupby("State")["Registrations"].sum().sort_values(ascending=False)
 )
@@ -245,7 +245,7 @@ for state in supply_regions:
         fac: distances[state][fac] * cost_per_km for fac in facilities
     }
 
-scenarios_df = pd.read_csv("data/processed/smip_scenarios_mc_reduced.csv")
+scenarios_df = pd.read_csv("data/processed/model_outputs/smip_scenarios_mc_reduced.csv")
 df_2030 = scenarios_df[scenarios_df["Year"] == 2030].copy()
 # Scenario Probabilities (Dynamic from MC Reduction)
 scen_probs_df = scenarios_df[["Scenario", "Probability"]].drop_duplicates()
@@ -492,16 +492,16 @@ ax4.grid(True, linestyle="--", alpha=0.3)
 ax4.set_yticks(range(0, 7))
 
 plt.tight_layout()
-plt.savefig("outputs/sensitivity_dashboard.png", dpi=300)
-os.system("cp outputs/sensitivity_dashboard.png docs/")
+plt.savefig("outputs/phase8_sensitivity/sensitivity_dashboard.png", dpi=300)
+os.system("cp outputs/phase8_sensitivity/sensitivity_dashboard.png docs/")
 plt.close()
 
 # Save tables to CSV
-nmc_df.to_csv("outputs/sensitivity_nmc_revenue.csv", index=False)
-penalty_df.to_csv("outputs/sensitivity_penalty.csv", index=False)
-fixed_df.to_csv("outputs/sensitivity_fixed_cost.csv", index=False)
-trans_df.to_csv("outputs/sensitivity_transport.csv", index=False)
+nmc_df.to_csv("outputs/phase8_sensitivity/sensitivity_nmc_revenue.csv", index=False)
+penalty_df.to_csv("outputs/phase8_sensitivity/sensitivity_penalty.csv", index=False)
+fixed_df.to_csv("outputs/phase8_sensitivity/sensitivity_fixed_cost.csv", index=False)
+trans_df.to_csv("outputs/phase8_sensitivity/sensitivity_transport.csv", index=False)
 
-print("\n✓ All sensitivity analyses complete.")
-print("  Dashboard: outputs/sensitivity_dashboard.png")
-print("  Tables:    outputs/sensitivity_*.csv")
+print("\nSaved outputs:")
+print("  Dashboard: outputs/phase8_sensitivity/sensitivity_dashboard.png")
+print("  Tables:    outputs/phase8_sensitivity/sensitivity_*.csv")

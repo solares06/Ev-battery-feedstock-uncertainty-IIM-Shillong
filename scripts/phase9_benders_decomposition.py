@@ -4,7 +4,7 @@ import pulp
 import time
 import os
 
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase9_benders", exist_ok=True)
 
 print("=" * 70)
 print("Phase 9: Benders Decomposition for SMIP")
@@ -13,7 +13,7 @@ print("=" * 70)
 # ==============================================================================
 # 1. LOAD DATA (Same as Phase 7)
 # ==============================================================================
-vahan_df = pd.read_csv("data/processed/vahan_registrations.csv")
+vahan_df = pd.read_csv("data/processed/vahan/vahan_registrations.csv")
 state_totals = (
     vahan_df.groupby("State")["Registrations"].sum().sort_values(ascending=False)
 )
@@ -122,7 +122,7 @@ trans_cost = {}
 for state in supply_regions:
     trans_cost[state] = {fac: distances[state][fac] * cost_per_km for fac in facilities}
 
-scenarios_df = pd.read_csv("data/processed/smip_scenarios_mc_reduced.csv")
+scenarios_df = pd.read_csv("data/processed/model_outputs/smip_scenarios_mc_reduced.csv")
 df_2030 = scenarios_df[scenarios_df["Year"] == 2030].copy()
 scen_probs_df = scenarios_df[["Scenario", "Probability"]].drop_duplicates()
 scen_probs = dict(zip(scen_probs_df["Scenario"], scen_probs_df["Probability"]))
@@ -431,7 +431,7 @@ for row in convergence_log:
     )
 
 results_text = "\n".join(results_lines)
-with open("outputs/benders_results.txt", "w") as f:
+with open("outputs/phase9_benders/benders_results.txt", "w") as f:
     f.write(results_text)
 print("\n" + results_text)
 
@@ -485,11 +485,11 @@ ax2.legend()
 ax2.grid(True, linestyle="--", alpha=0.3)
 
 plt.tight_layout()
-plt.savefig("outputs/benders_convergence.png", dpi=300)
-os.system("cp outputs/benders_convergence.png docs/")
+plt.savefig("outputs/phase9_benders/benders_convergence.png", dpi=300)
+os.system("cp outputs/phase9_benders/benders_convergence.png docs/")
 plt.close()
 
 # Save convergence log
-conv_df.to_csv("outputs/benders_convergence_log.csv", index=False)
+conv_df.to_csv("outputs/phase9_benders/benders_convergence_log.csv", index=False)
 
-print(f"\n✓ Phase 9 complete. Results in outputs/benders_results.txt")
+print(f"\n✓ Phase 9 complete. Results in outputs/phase9_benders/benders_results.txt")

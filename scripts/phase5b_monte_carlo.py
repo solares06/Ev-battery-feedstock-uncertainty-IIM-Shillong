@@ -12,12 +12,13 @@ approach with proper probabilistic uncertainty quantification, as specified
 in the original project brief.
 
 Outputs:
-    data/processed/mc_eol_paths_raw.csv   - (10000 × 16) total EOL per year
-    data/processed/mc_sales_samples.csv   - (10000 × 16) sampled annual sales
-    outputs/mc_spaghetti_plot.png         - MC path visualization
+    data/processed/model_outputs/mc_eol_paths_raw.csv   - (10000 × 16) total EOL per year
+    data/processed/model_outputs/mc_sales_samples.csv   - (10000 × 16) sampled annual sales
+    outputs/phase5_scenarios/mc_spaghetti_plot.png       - MC path visualization
 """
 
 import pandas as pd
+# pyrefly: ignore [missing-import]
 import numpy as np
 from scipy.stats import weibull_min
 import matplotlib.pyplot as plt
@@ -25,8 +26,8 @@ import matplotlib.ticker as ticker
 import os
 import time
 
-os.makedirs("outputs", exist_ok=True)
-os.makedirs("data/processed", exist_ok=True)
+os.makedirs("outputs/phase5_scenarios", exist_ok=True)
+os.makedirs("data/processed/model_outputs", exist_ok=True)
 
 print("=" * 60)
 print("Phase 5b: Monte Carlo Scenario Generation")
@@ -36,7 +37,7 @@ print("=" * 60)
 # 1. LOAD & PREPARE FORECAST DATA
 # ============================================================
 
-forecast_df = pd.read_csv("data/processed/ev_sales_forecast_2035.csv")
+forecast_df = pd.read_csv("data/processed/model_outputs/ev_sales_forecast_2035.csv")
 forecast_df["Date"] = pd.to_datetime(forecast_df["Date"])
 forecast_df["Year"] = forecast_df["Date"].dt.year
 
@@ -80,7 +81,7 @@ for _, row in annual_agg.iterrows():
 # ============================================================
 
 # Vehicle class shares (from IEA BEV data, 2020-2025)
-iea_df = pd.read_csv("data/processed/iea_india_ev_sales.csv")
+iea_df = pd.read_csv("data/processed/iea/iea_india_ev_sales.csv")
 iea_bev = iea_df[
     (iea_df["powertrain"] == "BEV")
     & (iea_df["mode"].isin(["2 and 3 wheelers", "Cars", "Buses", "Vans", "Trucks"]))
@@ -163,14 +164,14 @@ print(f"Completed {N_SAMPLES:,} simulations in {elapsed:.2f} seconds")
 # ============================================================
 
 mc_eol_df = pd.DataFrame(eol_paths, columns=[str(y) for y in all_target_years])
-mc_eol_df.to_csv("data/processed/mc_eol_paths_raw.csv", index=False)
+mc_eol_df.to_csv("data/processed/model_outputs/mc_eol_paths_raw.csv", index=False)
 
 mc_sales_df = pd.DataFrame(sampled_sales, columns=[str(y) for y in years])
-mc_sales_df.to_csv("data/processed/mc_sales_samples.csv", index=False)
+mc_sales_df.to_csv("data/processed/model_outputs/mc_sales_samples.csv", index=False)
 
 print(f"\nSaved raw MC data:")
-print(f"  EOL paths:     data/processed/mc_eol_paths_raw.csv  ({mc_eol_df.shape})")
-print(f"  Sales samples: data/processed/mc_sales_samples.csv  ({mc_sales_df.shape})")
+print(f"  EOL paths:     data/processed/model_outputs/mc_eol_paths_raw.csv  ({mc_eol_df.shape})")
+print(f"  Sales samples: data/processed/model_outputs/mc_sales_samples.csv  ({mc_sales_df.shape})")
 
 # ============================================================
 # 6. SUMMARY STATISTICS
@@ -242,10 +243,10 @@ ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: f"{x/1e6:.1f}M"))
 ax.set_xlim(2020, 2035)
 
 plt.tight_layout()
-plt.savefig("outputs/mc_spaghetti_plot.png", dpi=300)
+plt.savefig("outputs/phase5_scenarios/mc_spaghetti_plot.png", dpi=300)
 plt.close()
 
-print("\nGenerated: outputs/mc_spaghetti_plot.png")
+print("\nGenerated: outputs/phase5_scenarios/mc_spaghetti_plot.png")
 print("\n" + "=" * 60)
 print("✓ Phase 5b complete.")
 print("  Proceed to Phase 5c for scenario reduction (k-means clustering).")

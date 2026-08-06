@@ -8,17 +8,17 @@ import json
 from prophet.serialize import model_to_json
 
 os.makedirs("models", exist_ok=True)
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase3_forecast", exist_ok=True)
 
 # 1. Data Preparation
-vahan_df = pd.read_csv("data/processed/vahan_registrations.csv")
+vahan_df = pd.read_csv("data/processed/vahan/vahan_registrations.csv")
 vahan_df["Date"] = pd.to_datetime(vahan_df["Date"])
 
 # Aggregate to National Level
 national_df = vahan_df.groupby("Date")["Registrations"].sum().reset_index()
 
 # Load Policy Regressors
-policy_df = pd.read_csv("data/processed/policy_regressors.csv")
+policy_df = pd.read_csv("data/processed/policy/policy_regressors.csv")
 policy_df["Date"] = pd.to_datetime(policy_df["Date"])
 
 # Merge
@@ -76,7 +76,7 @@ forecast = m.predict(future_with_regressors)
 forecast_out = forecast[["ds", "yhat", "yhat_lower", "yhat_upper"]].rename(
     columns={"ds": "Date", "yhat": "Forecast_Registrations"}
 )
-forecast_out.to_csv("data/processed/ev_sales_forecast_2035.csv", index=False)
+forecast_out.to_csv("data/processed/model_outputs/ev_sales_forecast_2035.csv", index=False)
 
 # Save Model
 with open("models/prophet_sales_model.json", "w") as fout:
@@ -92,9 +92,8 @@ plt.xlabel("Year")
 plt.ylabel("Registrations")
 plt.legend()
 plt.tight_layout()
-plt.savefig("outputs/forecast_validation.png", dpi=300)
-# Also copy to docs for user visibility
-os.system("cp outputs/forecast_validation.png docs/")
+plt.savefig("outputs/phase3_forecast/forecast_validation.png", dpi=300)
+os.system("cp outputs/phase3_forecast/forecast_validation.png docs/")
 plt.close()
 
 print("Phase 3 forecasting completed successfully.")

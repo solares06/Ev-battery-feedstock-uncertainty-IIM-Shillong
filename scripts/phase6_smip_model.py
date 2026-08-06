@@ -2,14 +2,14 @@ import pandas as pd
 import pulp
 import os
 
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase6_smip", exist_ok=True)
 
 print("Initializing SMIP Model Formulation...")
 
 # ==============================================================================
 # 1. LOAD DATA & SPATIAL APPORTIONMENT (Target Year: 2030)
 # ==============================================================================
-scenarios_df = pd.read_csv("data/processed/smip_scenarios_mc_reduced.csv")
+scenarios_df = pd.read_csv("data/processed/model_outputs/smip_scenarios_mc_reduced.csv")
 
 # We focus the optimization on the year 2030 network design
 df_2030 = scenarios_df[scenarios_df["Year"] == 2030].copy()
@@ -188,7 +188,7 @@ model.solve(pulp.PULP_CBC_CMD(msg=0))
 status = pulp.LpStatus[model.status]
 print(f"Model Status: {status}")
 
-with open("outputs/smip_results.txt", "w") as f:
+with open("outputs/phase6_smip/smip_results.txt", "w") as f:
     f.write(f"=== SMIP OPTIMIZATION RESULTS ===\n")
     f.write(f"Status: {status}\n")
     f.write(f"Objective Value (Expected Cost): ${pulp.value(model.objective):,.2f}\n\n")
@@ -219,4 +219,4 @@ with open("outputs/smip_results.txt", "w") as f:
         f.write(f"  Processed in Formal Recycling: {total_formal:,.0f} batteries\n")
         f.write(f"  Lost to Informal Sector:       {total_informal:,.0f} batteries\n")
 
-print("SMIP formulation solved and results exported to outputs/smip_results.txt.")
+print("SMIP formulation solved and results exported to outputs/phase6_smip/smip_results.txt.")

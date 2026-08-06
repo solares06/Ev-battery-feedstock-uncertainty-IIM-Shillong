@@ -5,7 +5,7 @@ import os
 import re
 
 input_dir = "data/raw/vahan"
-output_dir = "data/processed"
+output_dir = "data/processed/vahan"
 os.makedirs(output_dir, exist_ok=True)
 
 files = glob.glob(os.path.join(input_dir, "reportTable*.xlsx"))

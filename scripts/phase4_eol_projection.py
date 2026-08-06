@@ -4,15 +4,15 @@ from scipy.stats import weibull_min
 import matplotlib.pyplot as plt
 import os
 
-os.makedirs("outputs", exist_ok=True)
-os.makedirs("data/processed", exist_ok=True)
+os.makedirs("outputs/phase4_eol", exist_ok=True)
+os.makedirs("data/processed/model_outputs", exist_ok=True)
 
 # ============================================================
 # 1. LOAD DATA
 # ============================================================
 
 # Load Prophet forecast (monthly, national)
-forecast_df = pd.read_csv("data/processed/ev_sales_forecast_2035.csv")
+forecast_df = pd.read_csv("data/processed/model_outputs/ev_sales_forecast_2035.csv")
 forecast_df["Date"] = pd.to_datetime(forecast_df["Date"])
 forecast_df["Year"] = forecast_df["Date"].dt.year
 
@@ -25,7 +25,7 @@ annual_forecast.columns = ["Year", "Total_Sales"]
 annual_forecast["Total_Sales"] = annual_forecast["Total_Sales"].clip(lower=0)
 
 # Load IEA India EV sales by vehicle class
-iea_df = pd.read_csv("data/processed/iea_india_ev_sales.csv")
+iea_df = pd.read_csv("data/processed/iea/iea_india_ev_sales.csv")
 # Filter for BEV only (primary battery recycling concern) and relevant modes
 iea_bev = iea_df[
     (iea_df["powertrain"] == "BEV")
@@ -127,8 +127,8 @@ print("  ✓ Sanity check passed (EOL ≤ Sales)")
 # 7. SAVE OUTPUT
 # ============================================================
 
-eol_df.to_csv("data/processed/eol_battery_projection.csv", index=False)
-print(f"\nSaved EOL projection to data/processed/eol_battery_projection.csv")
+eol_df.to_csv("data/processed/model_outputs/eol_battery_projection.csv", index=False)
+print(f"\nSaved EOL projection to data/processed/model_outputs/eol_battery_projection.csv")
 
 # ============================================================
 # 8. VISUALIZATION - Stacked Area Chart
@@ -148,12 +148,12 @@ ax.stackplot(
 )
 
 ax.set_title(
-    "Projected End-of-Life EV Batteries in India (2020–2035)",
+    "Projected End-of-Life EV Battery Pack Units in India (2020–2035)",
     fontsize=14,
     fontweight="bold",
 )
 ax.set_xlabel("Year", fontsize=12)
-ax.set_ylabel("Number of EOL Batteries", fontsize=12)
+ax.set_ylabel("Number of Retired Battery Pack Units", fontsize=12)
 ax.legend(loc="upper left", fontsize=10)
 ax.grid(True, linestyle="--", alpha=0.3)
 ax.set_xlim(2020, 2035)
@@ -171,17 +171,106 @@ for yr in [2030, 2035]:
     )
 
 plt.tight_layout()
-plt.savefig("outputs/eol_projection_plot.png", dpi=300)
-os.system("cp outputs/eol_projection_plot.png docs/")
+plt.savefig("outputs/phase4_eol/eol_projection_plot.png", dpi=300)
 plt.close()
 
-print("Generated EOL projection plot.")
+print("Generated EOL projection plot (Unit Count).")
 
-# Print key results
-print("\n" + "=" * 60)
-print("KEY RESULTS")
-print("=" * 60)
+# ============================================================
+# 9. EOL CAPACITY IN GWh (Energy-Based View)
+# ============================================================
+# Average battery capacity per vehicle class (kWh per pack).
+# Sources: BNEF, JMK Research, OEM spec sheets (Tata, Ather, BYD).
+
+avg_kwh_per_pack = {
+    "2 and 3 wheelers": 2.5,   # e-scooters ~2–3 kWh, e-rickshaws ~3.5 kWh
+    "Cars": 35.0,               # Tata Nexon ~30.2, MG ZS ~44.5, avg ~35
+    "Buses": 250.0,             # Tata Starbus ~200–300 kWh
+    "Vans": 30.0,               # Light commercial EVs ~25–35 kWh
+    "Trucks": 150.0,            # Medium-duty e-trucks ~100–200 kWh
+}
+
+eol_gwh_df = pd.DataFrame({"Year": all_target_years})
+for cls in class_shares.keys():
+    # Convert units to GWh: (num_packs * kWh_per_pack) / 1e6
+    eol_gwh_df[cls] = (eol_df[cls] * avg_kwh_per_pack[cls]) / 1e6
+
+eol_gwh_df["Total_EOL_GWh"] = eol_gwh_df[list(class_shares.keys())].sum(axis=1)
+
+# Save GWh projection
+eol_gwh_df.to_csv("data/processed/model_outputs/eol_battery_projection_gwh.csv", index=False)
+print("Saved EOL GWh projection to data/processed/model_outputs/eol_battery_projection_gwh.csv")
+
+# ============================================================
+# 10. VISUALIZATION - Stacked Area Chart (GWh)
+# ============================================================
+
+fig2, ax2 = plt.subplots(figsize=(12, 7))
+
+ax2.stackplot(
+    eol_gwh_df["Year"],
+    [eol_gwh_df[cls] for cls in classes],
+    labels=classes,
+    colors=colors,
+    alpha=0.85,
+)
+
+ax2.set_title(
+    "Projected End-of-Life EV Battery Capacity in India (2020–2035)",
+    fontsize=14,
+    fontweight="bold",
+)
+ax2.set_xlabel("Year", fontsize=12)
+ax2.set_ylabel("Retired Battery Capacity (GWh)", fontsize=12)
+ax2.legend(loc="upper left", fontsize=10)
+ax2.grid(True, linestyle="--", alpha=0.3)
+ax2.set_xlim(2020, 2035)
+
+# Add total annotation for 2030 and 2035
+for yr in [2030, 2035]:
+    total = eol_gwh_df.loc[eol_gwh_df["Year"] == yr, "Total_EOL_GWh"].values[0]
+    ax2.annotate(
+        f"{total:,.1f} GWh",
+        xy=(yr, total),
+        xytext=(yr - 1.5, total * 1.12),
+        fontsize=9,
+        fontweight="bold",
+        arrowprops=dict(arrowstyle="->", color="black"),
+    )
+
+plt.tight_layout()
+plt.savefig("outputs/phase4_eol/eol_projection_gwh_plot.png", dpi=300)
+plt.close()
+
+print("Generated EOL projection plot (GWh Capacity).")
+
+# ============================================================
+# 11. KEY RESULTS SUMMARY (Units + GWh)
+# ============================================================
+
+print("\n" + "=" * 70)
+print("KEY RESULTS — EOL Battery Units")
+print("=" * 70)
 for yr in [2025, 2028, 2030, 2033, 2035]:
     row = eol_df[eol_df["Year"] == yr]
     if not row.empty:
-        print(f"  {yr}: {row['Total_EOL'].values[0]:>12,.0f} EOL batteries")
+        print(f"  {yr}: {row['Total_EOL'].values[0]:>12,.0f} battery packs")
+
+print("\n" + "=" * 70)
+print("KEY RESULTS — EOL Battery Capacity (GWh)")
+print("=" * 70)
+for yr in [2025, 2028, 2030, 2033, 2035]:
+    row = eol_gwh_df[eol_gwh_df["Year"] == yr]
+    if not row.empty:
+        print(f"  {yr}: {row['Total_EOL_GWh'].values[0]:>12.2f} GWh")
+
+print("\n" + "=" * 70)
+print("COMPOSITION COMPARISON (2035)")
+print("=" * 70)
+yr_2035 = 2035
+print(f"  {'Vehicle Class':<22} {'% of Units':>12} {'% of GWh':>12}")
+print(f"  {'-'*22} {'-'*12} {'-'*12}")
+for cls in classes:
+    unit_share = eol_df.loc[eol_df["Year"] == yr_2035, cls].values[0] / eol_df.loc[eol_df["Year"] == yr_2035, "Total_EOL"].values[0] * 100
+    gwh_share = eol_gwh_df.loc[eol_gwh_df["Year"] == yr_2035, cls].values[0] / eol_gwh_df.loc[eol_gwh_df["Year"] == yr_2035, "Total_EOL_GWh"].values[0] * 100
+    print(f"  {cls:<22} {unit_share:>11.1f}% {gwh_share:>11.1f}%")

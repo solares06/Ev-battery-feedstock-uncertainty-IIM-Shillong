@@ -12,9 +12,22 @@ This document tracks the technical implementation, dataset details, and methodol
 - Created a standard project hierarchy:
   - `data/raw/vahan/`: Raw EV registration Excel files.
   - `data/raw/exogenous/`: Raw datasets for macroeconomic factors and battery data.
-  - `data/processed/`: Cleaned and merged CSV files ready for modeling.
+  - `data/processed/`: Cleaned and merged CSV files organized by data source:
+    - `data/processed/vahan/`: VAHAN registration data.
+    - `data/processed/iea/`: IEA India EV sales and battery deployment data.
+    - `data/processed/policy/`: Policy regressor time-series.
+    - `data/processed/chemistry/`: Battery chemistry mix assumptions.
+    - `data/processed/model_outputs/`: Generated forecasts, EOL projections, MC simulations, and SMIP scenarios.
   - `scripts/`: Python scripts for data processing and EDA.
-  - `outputs/`: Generated plots and visualizations.
+  - `outputs/`: Generated plots and visualizations, organized by phase:
+    - `outputs/phase2_eda/`: EDA plots (registrations trend, seasonal decomposition, chemistry mix, policy timeline).
+    - `outputs/phase3_forecast/`: Prophet forecast validation plot.
+    - `outputs/phase4_eol/`: EOL battery projection plots (unit count and GWh capacity).
+    - `outputs/phase5_scenarios/`: Scenario funnel, Monte Carlo spaghetti, k-selection, and representative overlay plots.
+    - `outputs/phase6_smip/`: SMIP optimization results.
+    - `outputs/phase7_state_smip/`: State-level SMIP results and facility decisions chart.
+    - `outputs/phase8_sensitivity/`: Sensitivity analysis dashboard and data tables.
+    - `outputs/phase9_benders/`: Benders decomposition convergence results.
 - **Python Stack:** Initialized a virtual environment (`venv`) and installed core dependencies via `requirements.txt` (`pandas`, `numpy`, `statsmodels`, `prophet`, `lifelines`, `scikit-learn`, `lightgbm`, `openpyxl`).
 
 ---
@@ -27,25 +40,29 @@ This document tracks the technical implementation, dataset details, and methodol
 - **Source:** Ministry of Road Transport & Highways (MoRTH) VAHAN Dashboard.
 - **Data Range:** January 2020 – July 2026.
 - **Structure:** 7 Excel files (`reportTable.xlsx` to `reportTable (6).xlsx`), each containing month-wise, state-wise EV registrations.
+- **Output:** `data/processed/vahan/vahan_registrations.csv`
 
 ### 1.2 IEA Global EV Data
 - **Source:** International Energy Agency (IEA) Global EV Data Explorer.
 - **File:** `EV data by country 2026.xlsx`.
 - **Procedure:** Filtered the global dataset to extract India-specific metrics using a Python script.
 - **Outputs generated:**
-  - `iea_india_ev_sales.csv`: Historical EV sales data for India.
-  - `iea_india_battery_deployment.csv`: Historical battery deployment (in GWh) for India.
+  - `data/processed/iea/iea_india_ev_sales.csv`: Historical EV sales data for India.
+  - `data/processed/iea/iea_india_battery_deployment.csv`: Historical battery deployment (in GWh) for India.
 
 ### 1.3 Exogenous Policy Regressors
 - **Context:** Sudden spikes in EV adoption are highly correlated with government subsidies. 
-- **Procedure:** Generated a time-series CSV (`policy_regressors.csv`) based on official Ministry of Heavy Industries (MHI) timelines.
+- **Procedure:** Generated a time-series CSV based on official Ministry of Heavy Industries (MHI) timelines.
   - **FAME-II Active:** Boolean flag for April 2019 – March 2024.
   - **PM E-DRIVE Active:** Boolean flag for October 2024 – March 2026.
   - **State Subsidies Active:** Boolean flag (proxy from July 2021) for major state-level EV policies (Delhi, Maharashtra, etc.).
+- **Output:** `data/processed/policy/policy_regressors.csv`
 
 ### 1.4 Battery Chemistry Mix Assumptions
 - **Context:** The ratio of NMC (Nickel Manganese Cobalt) to LFP (Lithium Iron Phosphate) drastically impacts recycling economics. The IEA dataset does not split chemistry by country.
-- **Procedure:** Generated `chemistry_mix.csv` based on Indian industry literature (e.g., JMK Research, BNEF). Since India's market is dominated by 2W/3W vehicles, the assumption encodes a transition from 30% LFP in 2020 to ~80% LFP by 2026+.
+- **Procedure:** Generated based on Indian industry literature (e.g., JMK Research, BNEF). Since India's market is dominated by 2W/3W vehicles, the assumption encodes a transition from 30% LFP in 2020 to ~80% LFP by 2026+.
+- **Output:** `data/processed/chemistry/chemistry_mix.csv`
+
 
 ---
 

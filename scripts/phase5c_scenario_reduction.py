@@ -17,9 +17,9 @@ Output Format (one row per Year × Scenario × Vehicle_Class × Chemistry):
     Year, Scenario, Probability, Vehicle_Class, Chemistry, EOL_Volume
 
 Outputs:
-    data/processed/smip_scenarios_mc_reduced.csv   - SMIP-ready scenario set
-    outputs/scenario_k_selection.png               - Silhouette & Elbow plot
-    outputs/representative_scenarios_overlay.png   - Representative paths on MC cloud
+    data/processed/model_outputs/smip_scenarios_mc_reduced.csv   - SMIP-ready scenario set
+    outputs/phase5_scenarios/scenario_k_selection.png               - Silhouette & Elbow plot
+    outputs/phase5_scenarios/representative_scenarios_overlay.png   - Representative paths on MC cloud
 """
 
 import pandas as pd
@@ -33,8 +33,8 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import os
 
-os.makedirs("outputs", exist_ok=True)
-os.makedirs("data/processed", exist_ok=True)
+os.makedirs("outputs/phase5_scenarios", exist_ok=True)
+os.makedirs("data/processed/model_outputs", exist_ok=True)
 
 print("=" * 60)
 print("Phase 5c: Scenario Reduction (K-Means Clustering)")
@@ -44,8 +44,8 @@ print("=" * 60)
 # 1. LOAD MC DATA FROM PHASE 5b
 # ============================================================
 
-mc_eol_raw = pd.read_csv("data/processed/mc_eol_paths_raw.csv")
-mc_sales_raw = pd.read_csv("data/processed/mc_sales_samples.csv")
+mc_eol_raw = pd.read_csv("data/processed/model_outputs/mc_eol_paths_raw.csv")
+mc_sales_raw = pd.read_csv("data/processed/model_outputs/mc_sales_samples.csv")
 
 eol_paths = mc_eol_raw.values
 sales_samples = mc_sales_raw.values
@@ -67,7 +67,7 @@ print(
 # ============================================================
 
 # Vehicle class shares (IEA)
-iea_df = pd.read_csv("data/processed/iea_india_ev_sales.csv")
+iea_df = pd.read_csv("data/processed/iea/iea_india_ev_sales.csv")
 iea_bev = iea_df[
     (iea_df["powertrain"] == "BEV")
     & (iea_df["mode"].isin(["2 and 3 wheelers", "Cars", "Buses", "Vans", "Trucks"]))
@@ -102,7 +102,7 @@ for cls, params in weibull_params.items():
     conv_matrices[cls] = M
 
 # Chemistry mix by cohort year (for disaggregation)
-chem_df = pd.read_csv("data/processed/chemistry_mix.csv")
+chem_df = pd.read_csv("data/processed/chemistry/chemistry_mix.csv")
 chem_df["Date"] = pd.to_datetime(chem_df["Date"])
 chem_df["Year"] = chem_df["Date"].dt.year
 annual_chem = (
@@ -302,7 +302,7 @@ print(f"  Expected 2030 total EOL (prob-weighted): {eol_2030_expected:,.0f}")
 # 7. SAVE OUTPUT
 # ============================================================
 
-output_file = "data/processed/smip_scenarios_mc_reduced.csv"
+output_file = "data/processed/model_outputs/smip_scenarios_mc_reduced.csv"
 smip_df.to_csv(output_file, index=False)
 print(f"\nSaved {len(smip_df):,} records to {output_file}")
 
@@ -319,8 +319,8 @@ for k, (idx, prob) in enumerate(zip(representative_indices, probabilities)):
             row[f"EOL_{yr}"] = int(eol_paths[idx, yr_idx])
     summary_records.append(row)
 summary_df = pd.DataFrame(summary_records)
-summary_df.to_csv("outputs/mc_scenario_summary.csv", index=False)
-print("Saved scenario summary to outputs/mc_scenario_summary.csv")
+summary_df.to_csv("outputs/phase5_scenarios/mc_scenario_summary.csv", index=False)
+print("Saved scenario summary to outputs/phase5_scenarios/mc_scenario_summary.csv")
 
 # ============================================================
 # 8. VISUALIZATIONS
@@ -363,8 +363,8 @@ ax2.grid(True, linestyle="--", alpha=0.3)
 ax2.set_xticks(list(K_range))
 
 plt.tight_layout()
-plt.savefig("outputs/scenario_k_selection.png", dpi=300)
-os.system("cp outputs/scenario_k_selection.png docs/")
+plt.savefig("outputs/phase5_scenarios/scenario_k_selection.png", dpi=300)
+os.system("cp outputs/phase5_scenarios/scenario_k_selection.png docs/")
 plt.close()
 
 # 8b. Representative Scenarios Overlaid on MC Cloud
@@ -412,13 +412,13 @@ ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: f"{x/1e6:.1f}M"))
 ax.set_xlim(2020, 2035)
 
 plt.tight_layout()
-plt.savefig("outputs/representative_scenarios_overlay.png", dpi=300)
-os.system("cp outputs/representative_scenarios_overlay.png docs/")
+plt.savefig("outputs/phase5_scenarios/representative_scenarios_overlay.png", dpi=300)
+os.system("cp outputs/phase5_scenarios/representative_scenarios_overlay.png docs/")
 plt.close()
 
 print("\nGenerated visualizations:")
-print("  outputs/scenario_k_selection.png")
-print("  outputs/representative_scenarios_overlay.png")
+print("  outputs/phase5_scenarios/scenario_k_selection.png")
+print("  outputs/phase5_scenarios/representative_scenarios_overlay.png")
 print(f"\n" + "=" * 60)
 print(f"✓ Phase 5c complete.")
 print(f"  {K_OPTIMAL} representative scenarios saved to {output_file}")

@@ -7,13 +7,13 @@ We consolidated all the 7 VAHAN `reportTable*.xlsx` files into a single, structu
 
 - **Start Date:** January 2020
 - **End Date:** July 2026
-- **Processed File:** [vahan_registrations.csv](../data/processed/vahan_registrations.csv)
+- **Processed File:** [vahan_registrations.csv](../data/processed/vahan/vahan_registrations.csv)
 
 ## 2. Total Registrations Trend
 
 Aggregating the registrations nationally over time reveals the overarching trend of EV adoption in India.
 
-![Total Registrations](../outputs/total_registrations.png)
+![Total Registrations](../outputs/phase2_eda/total_registrations.png)
 
 > [!NOTE]
 > The adoption curve clearly shows rapid acceleration, likely correlated with major policy interventions (like the FAME-II extensions and state subsidies). 
@@ -22,7 +22,7 @@ Aggregating the registrations nationally over time reveals the overarching trend
 
 To properly forecast future sales (Phase 3), we decomposed the time series into **Trend**, **Seasonal**, and **Residual** components.
 
-![Seasonal Decomposition](../outputs/seasonal_decomposition.png)
+![Seasonal Decomposition](../outputs/phase2_eda/seasonal_decomposition.png)
 
 > [!TIP]
 > The decomposition highlights a strong underlying upward trend, accompanied by a repeating seasonal pattern (e.g., spikes during festive seasons or financial year ends).

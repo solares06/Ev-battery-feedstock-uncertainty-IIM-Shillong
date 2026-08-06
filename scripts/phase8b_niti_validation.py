@@ -20,11 +20,11 @@ print("=" * 60)
 
 # 1. Load MC reduced scenarios (probabilistic expected value)
 try:
-    smip_df = pd.read_csv("data/processed/smip_scenarios_mc_reduced.csv")
+    smip_df = pd.read_csv("data/processed/model_outputs/smip_scenarios_mc_reduced.csv")
     print("Loaded reduced MC scenarios.")
 except FileNotFoundError:
     print("MC scenarios not found. Falling back to deterministic scenarios.")
-    smip_df = pd.read_csv("data/processed/smip_feedstock_scenarios.csv")
+    smip_df = pd.read_csv("data/processed/model_outputs/smip_feedstock_scenarios.csv")
 
 # 2. Extract 2030 data and calculate probability-weighted volume
 df_2030 = smip_df[smip_df["Year"] == 2030]

@@ -4,7 +4,7 @@ import pulp
 import matplotlib.pyplot as plt
 import os
 
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase7_state_smip", exist_ok=True)
 
 print("=" * 60)
 print("Phase 7: State-Level SMIP with Realistic INR Costs")
@@ -13,7 +13,7 @@ print("=" * 60)
 # ==============================================================================
 # 1. COMPUTE REAL STATE-LEVEL SHARES FROM VAHAN DATA
 # ==============================================================================
-vahan_df = pd.read_csv("data/processed/vahan_registrations.csv")
+vahan_df = pd.read_csv("data/processed/vahan/vahan_registrations.csv")
 state_totals = (
     vahan_df.groupby("State")["Registrations"].sum().sort_values(ascending=False)
 )
@@ -169,7 +169,7 @@ for state in supply_regions:
 # ==============================================================================
 # 4. LOAD SCENARIO DATA (2030)
 # ==============================================================================
-scenarios_df = pd.read_csv("data/processed/smip_scenarios_mc_reduced.csv")
+scenarios_df = pd.read_csv("data/processed/model_outputs/smip_scenarios_mc_reduced.csv")
 df_2030 = scenarios_df[scenarios_df["Year"] == 2030]
 # Scenario Probabilities (Dynamic from MC Reduction)
 scen_probs_df = scenarios_df[["Scenario", "Probability"]].drop_duplicates()
@@ -338,7 +338,7 @@ for s in scenario_list:
         )
 
 results_text = "\n".join(results_lines)
-with open("outputs/smip_results_state_level.txt", "w") as f:
+with open("outputs/phase7_state_smip/smip_results_state_level.txt", "w") as f:
     f.write(results_text)
 print(results_text)
 
@@ -370,8 +370,8 @@ for bar, val in zip(bars, opened_facs.values()):
     )
 ax.grid(True, axis="y", linestyle="--", alpha=0.3)
 plt.tight_layout()
-plt.savefig("outputs/facility_decisions_chart.png", dpi=300)
-os.system("cp outputs/facility_decisions_chart.png docs/")
+plt.savefig("outputs/phase7_state_smip/facility_decisions_chart.png", dpi=300)
+os.system("cp outputs/phase7_state_smip/facility_decisions_chart.png docs/")
 plt.close()
 
-print("\nPhase 7 complete. Results saved to outputs/smip_results_state_level.txt")
+print("\nPhase 7 complete. Results saved to outputs/phase7_state_smip/smip_results_state_level.txt")

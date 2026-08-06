@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase2_eda", exist_ok=True)
 
 # 1. EDA for Chemistry Mix
-chem_df = pd.read_csv("data/processed/chemistry_mix.csv")
+chem_df = pd.read_csv("data/processed/chemistry/chemistry_mix.csv")
 chem_df["Date"] = pd.to_datetime(chem_df["Date"])
 
 plt.figure(figsize=(10, 6))
@@ -29,11 +29,11 @@ plt.xlabel("Year")
 plt.legend()
 plt.grid(True, linestyle="--", alpha=0.6)
 plt.tight_layout()
-plt.savefig("outputs/chemistry_mix_trend.png", dpi=300)
+plt.savefig("outputs/phase2_eda/chemistry_mix_trend.png", dpi=300)
 plt.close()
 
 # 2. EDA for Policy Regressors
-pol_df = pd.read_csv("data/processed/policy_regressors.csv")
+pol_df = pd.read_csv("data/processed/policy/policy_regressors.csv")
 pol_df["Date"] = pd.to_datetime(pol_df["Date"])
 
 plt.figure(figsize=(10, 6))
@@ -68,7 +68,7 @@ plt.yticks([0, 1], ["Inactive", "Active"])
 plt.xlabel("Year")
 plt.legend(loc="center left")
 plt.tight_layout()
-plt.savefig("outputs/policy_timeline.png", dpi=300)
+plt.savefig("outputs/phase2_eda/policy_timeline.png", dpi=300)
 plt.close()
 
-print("Generated EDA plots for exogenous variables in outputs/ folder.")
+print("Generated EDA plots for exogenous variables in outputs/phase2_eda/ folder.")

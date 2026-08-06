@@ -3,8 +3,12 @@ import numpy as np
 import os
 
 input_file = "data/raw/exogenous/EV data by country 2026.xlsx"
-out_dir = "data/processed"
-os.makedirs(out_dir, exist_ok=True)
+iea_dir = "data/processed/iea"
+policy_dir = "data/processed/policy"
+chem_dir = "data/processed/chemistry"
+os.makedirs(iea_dir, exist_ok=True)
+os.makedirs(policy_dir, exist_ok=True)
+os.makedirs(chem_dir, exist_ok=True)
 
 # 1. Extract India Data from IEA Dataset
 try:
@@ -15,11 +19,11 @@ try:
     sales_df = india_df[india_df["parameter"] == "EV sales"]
     battery_df = india_df[india_df["parameter"] == "Battery deployment"]
 
-    sales_df.to_csv(os.path.join(out_dir, "iea_india_ev_sales.csv"), index=False)
+    sales_df.to_csv(os.path.join(iea_dir, "iea_india_ev_sales.csv"), index=False)
     battery_df.to_csv(
-        os.path.join(out_dir, "iea_india_battery_deployment.csv"), index=False
+        os.path.join(iea_dir, "iea_india_battery_deployment.csv"), index=False
     )
-    print("Extracted IEA India data to data/processed/")
+    print("Extracted IEA India data to data/processed/iea/")
 except Exception as e:
     print(f"Error processing IEA data: {e}")
 
@@ -37,7 +41,7 @@ policy_df["PM_EDRIVE_Active"] = (
 
 # Major State Subsidies (Delhi, MH, GJ rolled out major policies in mid-2021)
 policy_df["State_Subsidy_Active"] = (policy_df["Date"] >= "2021-07-01").astype(int)
-policy_df.to_csv(os.path.join(out_dir, "policy_regressors.csv"), index=False)
+policy_df.to_csv(os.path.join(policy_dir, "policy_regressors.csv"), index=False)
 print("Generated real-world policy regressors (FAME-II & PM E-DRIVE dates).")
 
 # 3. Battery Chemistry Share (Literature/Industry Standard for India)
@@ -68,7 +72,7 @@ def get_lfp_share(year):
 chem_df["LFP_Share"] = chem_df["Year"].apply(get_lfp_share)
 chem_df["NMC_Share"] = 1.0 - chem_df["LFP_Share"]
 chem_df.drop("Year", axis=1, inplace=True)
-chem_df.to_csv(os.path.join(out_dir, "chemistry_mix.csv"), index=False)
+chem_df.to_csv(os.path.join(chem_dir, "chemistry_mix.csv"), index=False)
 print(
     "Generated battery chemistry share (LFP vs NMC) based on standard India industry reports."
 )

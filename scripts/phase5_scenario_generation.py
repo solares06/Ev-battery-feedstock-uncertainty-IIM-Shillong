@@ -4,15 +4,15 @@ from scipy.stats import weibull_min
 import matplotlib.pyplot as plt
 import os
 
-os.makedirs("outputs", exist_ok=True)
-os.makedirs("data/processed", exist_ok=True)
+os.makedirs("outputs/phase5_scenarios", exist_ok=True)
+os.makedirs("data/processed/model_outputs", exist_ok=True)
 
 # ============================================================
 # 1. LOAD DATA & SETUP
 # ============================================================
 
 # Load Prophet forecast
-forecast_df = pd.read_csv("data/processed/ev_sales_forecast_2035.csv")
+forecast_df = pd.read_csv("data/processed/model_outputs/ev_sales_forecast_2035.csv")
 forecast_df["Date"] = pd.to_datetime(forecast_df["Date"])
 forecast_df["Year"] = forecast_df["Date"].dt.year
 
@@ -28,7 +28,7 @@ for col in ["yhat_lower", "Forecast_Registrations", "yhat_upper"]:
     annual_forecast[col] = annual_forecast[col].clip(lower=0)
 
 # Load IEA class shares
-iea_df = pd.read_csv("data/processed/iea_india_ev_sales.csv")
+iea_df = pd.read_csv("data/processed/iea/iea_india_ev_sales.csv")
 iea_bev = iea_df[
     (iea_df["powertrain"] == "BEV")
     & (iea_df["mode"].isin(["2 and 3 wheelers", "Cars", "Buses", "Vans", "Trucks"]))
@@ -39,7 +39,7 @@ class_shares = (
 ).to_dict()
 
 # Load Chemistry Mix
-chem_df = pd.read_csv("data/processed/chemistry_mix.csv")
+chem_df = pd.read_csv("data/processed/chemistry/chemistry_mix.csv")
 chem_df["Date"] = pd.to_datetime(chem_df["Date"])
 chem_df["Year"] = chem_df["Date"].dt.year
 annual_chem = (
@@ -150,7 +150,7 @@ smip_df["EOL_Volume"] = smip_df["EOL_Volume"].astype(int)
 # 3. SAVE MASTER DATASET FOR SMIP SOLVER
 # ============================================================
 
-smip_df.to_csv("data/processed/smip_feedstock_scenarios.csv", index=False)
+smip_df.to_csv("data/processed/model_outputs/smip_feedstock_scenarios.csv", index=False)
 print(
     "Saved SMIP master scenario dataset to data/processed/smip_feedstock_scenarios.csv"
 )
@@ -193,8 +193,8 @@ import matplotlib.ticker as ticker
 ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ",")))
 
 plt.tight_layout()
-plt.savefig("outputs/scenario_funnel_plot.png", dpi=300)
-os.system("cp outputs/scenario_funnel_plot.png docs/")
+plt.savefig("outputs/phase5_scenarios/scenario_funnel_plot.png", dpi=300)
+os.system("cp outputs/phase5_scenarios/scenario_funnel_plot.png docs/")
 plt.close()
 
 print("Generated scenario funnel plot.")

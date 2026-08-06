@@ -4,14 +4,14 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.stattools import adfuller
 import os
 
-df = pd.read_csv("data/processed/vahan_registrations.csv")
+df = pd.read_csv("data/processed/vahan/vahan_registrations.csv")
 df["Date"] = pd.to_datetime(df["Date"])
 
 # Aggregate to national level
 national_df = df.groupby("Date")["Registrations"].sum().reset_index()
 national_df = national_df.sort_values("Date").set_index("Date")
 
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("outputs/phase2_eda", exist_ok=True)
 
 # 1. Plot Total Registrations
 plt.figure(figsize=(12, 6))
@@ -27,7 +27,7 @@ plt.xlabel("Date")
 plt.ylabel("Monthly Registrations")
 plt.grid(True, linestyle="--", alpha=0.7)
 plt.tight_layout()
-plt.savefig("outputs/total_registrations.png", dpi=300)
+plt.savefig("outputs/phase2_eda/total_registrations.png", dpi=300)
 plt.close()
 
 # 2. Seasonal Decomposition
@@ -38,9 +38,9 @@ try:
     fig = decomposition.plot()
     fig.set_size_inches(12, 8)
     plt.tight_layout()
-    plt.savefig("outputs/seasonal_decomposition.png", dpi=300)
+    plt.savefig("outputs/phase2_eda/seasonal_decomposition.png", dpi=300)
     plt.close()
-    print("Saved plots to outputs/")
+    print("Saved plots to outputs/phase2_eda/")
 except Exception as e:
     print(f"Decomposition failed: {e}")
 
